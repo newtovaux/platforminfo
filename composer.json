@@ -1,0 +1,22 @@
+{
+    "name": "newtovaux/platform",
+    "description": "This WordPress plugin gives useful infomation for sites on shared-hosting.",
+    "type": "project",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.6",
+        "wp-coding-standards/wpcs": "^2.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Newtovaux\\Platform\\": "include/"
+        }
+    },
+    "authors": [
+        {
+            "name": "newtovaux",
+            "email": "newtovaux@gmail.com"
+        }
+    ],
+    "require": {}
+}

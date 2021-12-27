@@ -1,2 +1,2 @@
-# fuel-wp-plugin
+# platform-wp-plugin
 
