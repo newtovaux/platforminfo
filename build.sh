@@ -14,7 +14,7 @@ fi
 pushd .. 2>&1 > /dev/null
 
 # Zip the plugin
-zip -q -9 "platforminfo/$ZIPFILE" -r platform/ \
+zip -q -9 "platforminfo/$ZIPFILE" -r platforminfo/ \
     -x 'platforminfo/*.git*' \
     -x 'platforminfo/*.zip' \
     -x 'platforminfo/build.sh' \
