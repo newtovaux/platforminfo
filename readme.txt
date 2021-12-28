@@ -1,6 +1,6 @@
-=== platform ===
+=== PlatformInfo ===
 Contributors: newtovaux
-Tags: platform, shared-hosting, phpinfo
+Tags: platforminfo, shared-hosting, phpinfo
 Requires at least: 4.7
 Tested up to: 5.8
 Stable tag: 1.0
