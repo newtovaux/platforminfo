@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== platform ===
 Contributors: newtovaux
 Tags: platform, shared-hosting, phpinfo
 Requires at least: 4.7

@@ -3,11 +3,11 @@
 /**
  * Plugin Name:       Platform
  * Description:       This WordPress plugin gives useful infomation for sites on shared-hosting.
- * Version:           1.1.0
- * Requires at least: 5.2
- * Requires PHP:      7.2
+ * Version:           1.0
+ * Requires at least: 5.8
+ * Requires PHP:      7.4
  * Author:            newtovaux
- * License:           MIT
+ * License:           GPLv2
  */
 
 /* Quit */
