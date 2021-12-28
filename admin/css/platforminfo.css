@@ -1,14 +1,14 @@
-div.platform_div {
+div.platforminfo_div {
     text-decoration: underline;
 }
 
-div.platform_status_box {
+div.platforminfo_status_box {
     border: 1px solid #c3c4c7; 
     background-color: #ffffff; 
     padding: 8px 10px;
 }
 
-table.platform {
+table.platforminfo {
     border: 1px solid #c3c4c7;
     background: #ffffff;
     width: 100%;
@@ -16,22 +16,20 @@ table.platform {
     table-layout: fixed;
 }
 
-tr.platform_striped:nth-child(even) {
+tr.platforminfo_striped:nth-child(even) {
     background-color: #f6f7f7;
 }
 
-tr.platform_striped > td {
+tr.platforminfo_striped > td {
     padding: 8px 10px;
 }
 
-ul.platform {
+ul.platforminfo {
     padding: revert;
     list-style: revert;
 }
 
-
-
-.platform_collapsible {
+.platforminfo_collapsible {
     background-color: #eee;
     color: #444;
     cursor: pointer;
@@ -43,7 +41,7 @@ ul.platform {
     font-size: 15px;
   }
 
-  button.platform_collapsible:after {
+  button.platforminfo_collapsible:after {
     content: '\002B';
     
     font-weight: bold;
@@ -51,17 +49,17 @@ ul.platform {
     margin-left: 5px;
 }
 
-button.platform_collapsible.platform_active:after {
+button.platforminfo_collapsible.platform_active:after {
     content: "\2212";
 }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .platform_active, .platform_collapsible:hover {
+  .platform_active, .platforminfo_collapsible:hover {
     background-color: #fff;
   }
   
   /* Style the collapsible content. Note: hidden by default */
-  .platform_content {
+  .platforminfo_content {
     display: none;
     overflow: hidden;
     background-color: #fff;

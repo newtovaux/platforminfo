@@ -1,6 +1,8 @@
 # ---> VisualStudioCode
 .settings
-platform.zip
 
+# Plugin in zip file for testing
+*.zip
 
+# PHP Dependencies
 /vendor/

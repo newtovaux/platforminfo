@@ -3,19 +3,19 @@
 /**
  * Class for initializing the hooks and actions.
  *
- * @package Platform
+ * @package Platforminfo
  */
 
 /* Quit */
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Platform is a class
+ * Platforminfo is a class
  * 
- * @package Platform
+ * @package Platforminfo
  * @author Newtovaux <newtovaux@gmail.com>
  */
-final class Platform {
+final class Platforminfo {
 
     /**
      * Psuedo constructor for static instance
@@ -31,8 +31,8 @@ final class Platform {
      */
     public function __construct() {
         if ( is_admin() ) {
-            add_action( 'admin_enqueue_scripts', [__CLASS__, 'load_admin_styles' ] );
-            add_action( 'admin_menu', [ __CLASS__, 'platform_options_page' ] );
+            add_action( 'admin_enqueue_scripts', [__CLASS__, 'platforminfo_load_admin_styles' ] );
+            add_action( 'admin_menu', [ __CLASS__, 'platforminfo_options_page' ] );
         }
     }
 
@@ -41,9 +41,9 @@ final class Platform {
      *
      * @return void
      */
-    public static function load_admin_styles() {
-        wp_enqueue_style('platform', plugins_url( 'platform', '_FILE_' ).'/admin/css/platform.css');
-        wp_enqueue_script('platform', plugins_url( 'platform', '_FILE_' ).'/admin/js/platform.js', array(), 5.8, true);
+    public static function platforminfo_load_admin_styles() {
+        wp_enqueue_style('platforminfo', plugins_url( 'platforminfo', '_FILE_' ).'/admin/css/platforminfo.css');
+        wp_enqueue_script('platforminfo', plugins_url( 'platforminfo', '_FILE_' ).'/admin/js/platforminfo.js', array(), 5.8, true);
     }
 
     /**
@@ -51,19 +51,19 @@ final class Platform {
      *
      * @return void
      */
-    public static function platform_options_page() {
+    public static function platforminfo_options_page() {
         add_menu_page(
-            'Platform - Shared Hosting Details', // $page_title
-            'Platform', //$menu_title
+            'Platforminfo - Shared Hosting Details', // $page_title
+            'Platforminfo', //$menu_title
             'manage_options', // $capability
-            'platform', // $menu_slug
-            [__CLASS__, 'platformwpplugin_options_page_html'],
+            'platforminfo', // $menu_slug
+            [__CLASS__, 'platforminfo_wpplugin_options_page_html'],
             'dashicons-yes', // $icon_url
             5
         );
     }
 
-    public static function platformwpplugin_options_page_html() {
+    public static function platforminfo_wpplugin_options_page_html() {
 
         if (function_exists('ini_get_all')) {
             $php_ini_settings = ini_get_all();
@@ -108,11 +108,11 @@ final class Platform {
         <div class="wrap">
           <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
           <h2>Site</h2>
-          <table class="platform">
-            <tr class="platform_striped">
+          <table class="platforminfo">
+            <tr class="platforminfo_striped">
                 <td>URL</td><td><?php echo site_url(); ?></td>
             </tr>
-            <tr class="platform_striped">
+            <tr class="platforminfo_striped">
                 <td>WP Home Path</td><td><?php echo get_home_path(); ?></td>
             </tr>
           </table>
@@ -212,8 +212,8 @@ final class Platform {
             <?php } ?>
             <p>OPcache not available.</p>
           <?php } else { ?>
-            <button type="button" class="platform_collapsible">OPcache Details</button>
-            <div class="platform_content">
+            <button type="button" class="platforminfo_collapsible">OPcache Details</button>
+            <div class="platforminfo_content">
           <p>
               <?php
                 if (function_exists('opcache_get_configuration')) {
@@ -240,7 +240,7 @@ final class Platform {
     
     public static function recursive_ulli($entry) {
         if (is_array($entry)) {
-            echo '<ul class="platform">';
+            echo '<ul class="platforminfo">';
             foreach ($entry as $key => $value) {
                 if (is_array($value)) {
                     echo '<li>';

@@ -15,7 +15,7 @@
 
     <!-- ignore vendor files-->
     <file>include</file>
-    <file>platform.php</file>
+    <file>platforminfo.php</file>
     <exclude-pattern>vendor/*</exclude-pattern>
 
     <!-- WordPress coding standards -->

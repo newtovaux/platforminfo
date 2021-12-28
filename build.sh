@@ -2,7 +2,7 @@
 
 # Generates the plugin in zip file, for testing
 
-ZIPFILE="platform.zip"
+ZIPFILE="platforminfo.zip"
 
 # Remove the old zip file, if one exists
 if [ -f "$ZIPFILE" ]; then
@@ -14,13 +14,13 @@ fi
 pushd .. 2>&1 > /dev/null
 
 # Zip the plugin
-zip -q -9 "platform/$ZIPFILE" -r platform/ \
-    -x 'platform/*.git*' \
-    -x 'platform/*.zip' \
-    -x 'platform/build.sh' \
-    -x 'platform/vendor/*' \
-    -x 'platform/composer.*' \
-    -x 'platform/*.xml'
+zip -q -9 "platforminfo/$ZIPFILE" -r platform/ \
+    -x 'platforminfo/*.git*' \
+    -x 'platforminfo/*.zip' \
+    -x 'platforminfo/build.sh' \
+    -x 'platforminfo/vendor/*' \
+    -x 'platforminfo/composer.*' \
+    -x 'platforminfo/*.xml'
 
 popd 2>&1 > /dev/null
 

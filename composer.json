@@ -1,5 +1,5 @@
 {
-    "name": "newtovaux/platform",
+    "name": "newtovaux/platforminfo",
     "description": "This WordPress plugin gives useful infomation for sites on shared-hosting.",
     "type": "project",
     "require-dev": {
@@ -9,7 +9,7 @@
     "license": "GPLv2",
     "autoload": {
         "psr-4": {
-            "Newtovaux\\Platform\\": "include/"
+            "Newtovaux\\Platforminfo\\": "include/"
         }
     },
     "authors": [
