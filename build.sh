@@ -1,10 +1,20 @@
 #!/bin/bash
 
-rm platform.zip
+# Generates the plugin in zip file, for testing
 
-pushd ..
+ZIPFILE="platform.zip"
 
-zip -9 platform/platform.zip -r platform/ \
+# Remove the old zip file, if one exists
+if [ -f "$ZIPFILE" ]; then
+    echo "Removing old zip file: $ZIPFILE"
+    rm "$ZIPFILE"
+fi
+
+# Move up a directory
+pushd .. 2>&1 > /dev/null
+
+# Zip the plugin
+zip -q -9 "platform/$ZIPFILE" -r platform/ \
     -x 'platform/*.git*' \
     -x 'platform/*.zip' \
     -x 'platform/build.sh' \
@@ -12,4 +22,9 @@ zip -9 platform/platform.zip -r platform/ \
     -x 'platform/composer.*' \
     -x 'platform/*.xml'
 
-popd
+popd 2>&1 > /dev/null
+
+if [ -f "$ZIPFILE" ]; then
+    echo "Plugin zip file created: $ZIPFILE"
+    ls -ltrh "$ZIPFILE"
+fi
