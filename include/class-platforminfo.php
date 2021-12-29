@@ -61,8 +61,8 @@ final class Platforminfo
      */
     public static function platforminfo_options_page() {
         add_menu_page(
-            'Platforminfo - Shared Hosting Details', // $page_title
-            'Platforminfo', //$menu_title
+            'Platform Info - Shared Hosting Details', // $page_title
+            'Platform', //$menu_title
             'manage_options', // $capability
             'platforminfo', // $menu_slug
             [__CLASS__, 'platforminfo_wpplugin_options_page_html'],
@@ -118,10 +118,10 @@ final class Platforminfo
           <h2>Site</h2>
           <table class="platforminfo">
             <tr class="platforminfo_striped">
-                <td>URL</td><td><?php echo site_url(); ?></td>
+                <td>URL</td><td><?php echo esc_html(site_url()); ?></td>
             </tr>
             <tr class="platforminfo_striped">
-                <td>WP Home Path</td><td><?php echo get_home_path(); ?></td>
+                <td>WP Home Path</td><td><?php echo esc_html(get_home_path()); ?></td>
             </tr>
           </table>
           <h2>Environment</h2>
@@ -139,15 +139,15 @@ final class Platforminfo
                       foreach ($sort as $e => $v) {
                         printf(
                             '<tr><td>%s</td><td>%s</td></tr>', 
-                            $e,
-                            $v
+                            esc_html($e),
+                            esc_html($v)
                         );
                       }
                   ?>
               </tbody>
           </table>
           <h2>PHP</h2>
-          <p>PHP version: <?php echo phpversion(); ?></p>
+          <p>PHP version: <?php echo esc_html(phpversion()); ?></p>
           <table class="wp-list-table widefat fixed striped table-view-list">
               <thead>
                   <tr>
@@ -161,36 +161,36 @@ final class Platforminfo
                     foreach ($settings_to_display as $setting) {
                         switch($php_ini_settings[$setting['setting']]["local_value"]) {
                             case "-1":
-                                printf('<tr><td>%s</td><td>-1 (Unlimited by PHP)</td><td>%s</td></tr>', $setting['setting'], $setting['description']);
+                                printf('<tr><td>%s</td><td>-1 (Unlimited by PHP)</td><td>%s</td></tr>', esc_html($setting['setting']), esc_html($setting['description']));
                                 break;
                             case null:
                             case '':
-                                printf('<tr><td>%s</td><td>(Not set in php.ini)</td><td>%s</td></tr>', $setting['setting'], $setting['description']);
+                                printf('<tr><td>%s</td><td>(Not set in php.ini)</td><td>%s</td></tr>', esc_html($setting['setting']), esc_html($setting['description']));
                                 break;
                             default:
                                 if ($setting['type'] === 'bool') {
                                     printf(
                                         '<tr><td>%s</td><td>%s (%s)</td><td>%s</td></tr>', 
-                                        $setting['setting'], 
-                                        $php_ini_settings[$setting['setting']]["local_value"],
+                                        esc_html($setting['setting']),
+                                        esc_html($php_ini_settings[$setting['setting']]["local_value"]),
                                         $php_ini_settings[$setting['setting']]["local_value"] ? 'True' : 'False',
-                                        $setting['description']
+                                        esc_html($setting['description'])
                                     );
                                 } elseif ($setting['type'] === 'array') {
-                                    printf('<tr><td>%s</td>', $setting['setting']);
+                                    printf('<tr><td>%s</td>', esc_html($setting['setting']));
                                     $types = explode(',', $php_ini_settings[$setting['setting']]["local_value"]);
                                     echo '<td>';
                                     foreach ($types as $type) {
-                                        printf('%s<br />', $type);
+                                        printf('%s<br />', esc_html($type));
                                     }
                                     echo '</td>';
-                                    printf('<td>%s</td></tr>', $setting['description']);
+                                    printf('<td>%s</td></tr>', esc_html($setting['description']));
                                 } else {
                                     printf(
-                                        '<tr><td>%s</td><td>%s</td><td>%s</td></tr>', 
-                                        $setting['setting'], 
-                                        $php_ini_settings[$setting['setting']]["local_value"], 
-                                        $setting['description']
+                                        '<tr><td>%s</td><td>%s</td><td>%s</td></tr>',
+                                        esc_html($setting['setting']),
+                                        esc_html($php_ini_settings[$setting['setting']]["local_value"]),
+                                        esc_html($setting['description'])
                                     );
                                 }
                                 break;
@@ -205,7 +205,7 @@ final class Platforminfo
           <ul>
               <?php
                 foreach (get_loaded_extensions() as $ext) {
-                    printf('<li style="display: inline-block; padding-right: 10px;">%s</li>', $ext);
+                    printf('<li style="display: inline-block; padding-right: 10px;">%s</li>', esc_html($ext));
                 }
               ?>
           </ul>
@@ -241,7 +241,6 @@ final class Platforminfo
             </div>
           <?php } ?>
           <hr />
-          <a href="/wp-admin/plugin-install.php">Add Plugins</a>
         </div>
         <?php
     }
@@ -252,16 +251,16 @@ final class Platforminfo
             foreach ($entry as $key => $value) {
                 if (is_array($value)) {
                     echo '<li>';
-                    echo "<b>$key</b>: ";
+                    printf('<b>%s</b>: ', esc_html($key));
                     self::recursive_ulli($value);
                     echo '</li>';
                 } else {
                     echo '<li>';
-                    echo "$key = ";
+                    printf('%s = ', esc_html($key));
                     if (is_bool($value)) {
                         echo $value?'true':'false';
                     } else {
-                        echo $value;
+                        echo esc_html($value);
                     }
                     echo '</li>';
                 }
@@ -269,7 +268,7 @@ final class Platforminfo
             echo '</ul>';
         } else {
             echo '<li>';
-            echo $entry;
+            echo esc_html($entry);
             echo '</li>';
         }
     }
