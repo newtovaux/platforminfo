@@ -1,0 +1,27 @@
+# .gitattributes
+#
+# Author: newtovaux
+# Package: platforminfo
+# License: GPLv2
+#
+# GitHub uses git archive to create archive files (.zip, .tar.gz) from the repository, and offers you to download them.
+# Now the nice thing about git archive is, that you can actually control what goes into the archive, via the .gitattributes file.
+
+# Directories
+/.github export-ignore
+/.wordpress-org export-ignore
+/node_modules export-ignore
+/vendor export-ignore
+
+# Files
+/.distignore export-ignore
+/.editorconfig export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/.stylelintrc.json export-ignore
+/composer.json export-ignore
+/composer.lock export-ignore
+/package.json export-ignore
+/package-lock.json export-ignore
+/phpcs.xml export-ignore
+/build.sh export-ignore
