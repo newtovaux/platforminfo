@@ -3,28 +3,36 @@
 /**
  * Class for initializing the hooks and actions.
  *
- * @package Platforminfo
+ * PHP version 7.4
+ *
+ * @category Plugin
+ * @package  Platforminfo
+ * @author   newtovaux <newtovaux@gmail.com>
+ * @license  GPLv2 https://www.gnu.org/licenses/gpl-2.0.html
+ * @link     https://github.com/newtovaux/platforminfo
  */
 
 /* Quit */
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * Platforminfo is a class
- * 
+ *
  * @package Platforminfo
  * @author Newtovaux <newtovaux@gmail.com>
  */
-final class Platforminfo {
+final class Platforminfo
+{
 
     /**
      * Psuedo constructor for static instance
      *
      * @return void
      */
-    public static function instance() {
-		new self();
-	}
+    public static function instance()
+    {
+        new self();
+    }
 
     /**
      * Constructor
