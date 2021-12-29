@@ -18,8 +18,11 @@ defined('ABSPATH') || exit;
 /**
  * Platforminfo is a class
  *
- * @package Platforminfo
- * @author Newtovaux <newtovaux@gmail.com>
+ * @category Plugin
+ * @package  Platforminfo
+ * @author   Newtovaux <newtovaux@gmail.com>
+ * @license  GPLv2 https://www.gnu.org/licenses/gpl-2.0.html
+ * @link     https://github.com/newtovaux/platforminfo
  */
 final class Platforminfo
 {
@@ -37,7 +40,8 @@ final class Platforminfo
     /**
      * Constructor
      */
-    public function __construct() {
+    public function __construct()
+    {
         if ( is_admin() ) {
             add_action( 'admin_enqueue_scripts', [__CLASS__, 'platforminfo_load_admin_styles' ] );
             add_action( 'admin_menu', [ __CLASS__, 'platforminfo_options_page' ] );
