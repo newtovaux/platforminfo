@@ -36,7 +36,7 @@ If you don’t know how to install a plugin for WordPress, [here’s how](https:
 * Tested with PHP 7.4 or greater (although may work with earlier versions)
 * Tested with WordPress 5.8 or greater (although may work with earlier versions)
 
-## Development ##
+## Contribute ##
 * Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
 * Pull requests for documented bugs or suggested new features are highly appreciated.
 * If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
