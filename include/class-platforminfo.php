@@ -103,15 +103,15 @@ final class Platforminfo {
 			),
 			array(
 				'setting'     => 'post_max_size',
-				'description' => 'Sets max size of post data allowed. This setting also affects file upload.',
+				'description' => 'Sets max size of post data allowed. This setting also affects file upload',
 			),
 			array(
 				'setting'     => 'upload_max_filesize',
-				'description' => 'The maximum size of an uploaded file.',
+				'description' => 'The maximum size of an uploaded file',
 			),
 			array(
 				'setting'     => 'memory_limit',
-				'description' => 'This sets the maximum amount of memory in bytes that a script is allowed to allocate.',
+				'description' => 'This sets the maximum amount of memory in bytes that a script is allowed to allocate',
 			),
 			array(
 				'setting'     => 'disable_functions',
@@ -120,11 +120,11 @@ final class Platforminfo {
 			),
 			array(
 				'setting'     => 'max_execution_time',
-				'description' => 'This sets the maximum time in seconds a script is allowed to run before it is terminated by the parser.',
+				'description' => 'This sets the maximum time in seconds a script is allowed to run before it is terminated by the parser',
 			),
 			array(
 				'setting'     => 'display_errors',
-				'description' => 'This determines whether errors should be printed to the screen as part of the output or if they should be hidden from the user.',
+				'description' => 'This determines whether errors should be printed to the screen as part of the output or if they should be hidden from the user',
 				'type'        => 'bool',
 			),
 		);
@@ -136,6 +136,7 @@ final class Platforminfo {
 				?>
 			</h1>
 			<h2>Site</h2>
+			<p>Key details of your site's domain, and where it is located on the server.</p>
 			<table class="platforminfo">
 				<tr class="platforminfo_striped">
 					<td>URL</td><td><?php echo esc_html( site_url() ); ?></td>
@@ -145,33 +146,37 @@ final class Platforminfo {
 				</tr>
 			</table>
 			<h2>Environment</h2>
-			<table class="wp-list-table widefat fixed striped table-view-list">
-				<thead>
-					<tr>
-						<th class="manage-column">Environment variable</th>
-						<th class="manage-column">Value</th>
-					</tr>
-				</thead>
-				<tbody>
-				<?php
-				$sort = $_ENV;
-				ksort( $sort );
-				foreach ( $sort as $e => $v ) {
-					printf(
-						'<tr><td>%s</td><td>%s</td></tr>',
-						esc_html( $e ),
-						esc_html( $v )
-					);
-				}
-				?>
-				</tbody>
-			</table>
+			<p>Environment variables are dynamic-named values that can affect the way running processes will behave.</p>
+			<button type="button" class="platforminfo_collapsible">Environment details</button>
+			<div class="platforminfo_content">
+				<table class="wp-list-table widefat fixed striped table-view-list">
+					<thead>
+						<tr>
+							<th class="manage-column">Environment variable</th>
+							<th class="manage-column">Value</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+					$sort = $_ENV;
+					ksort( $sort );
+					foreach ( $sort as $e => $v ) {
+						printf(
+							'<tr><td>%s</td><td>%s</td></tr>',
+							esc_html( $e ),
+							esc_html( $v )
+						);
+					}
+					?>
+					</tbody>
+				</table>
+			</div>
 			<h2>PHP</h2>
-			<p>PHP version: <?php echo esc_html( phpversion() ); ?></p>
+			<p>PHP version: <?php echo esc_html( phpversion() ); ?>, php.ini: <?php echo esc_html( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?></p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
 					<tr>
-						<th class="manage-column" width=”20%”>Common Important php.ini Setting</th>
+						<th class="manage-column" width=”20%”>Common important php.ini settings</th>
 						<th class="manage-column" width=”20%”>Value</th>
 						<th class="manage-column" width=”60%”>Description</th>
 					</tr>
@@ -216,6 +221,10 @@ final class Platforminfo {
 							break;
 					}
 				}
+				printf(
+					'<tr><td>php_ini_scanned_files()</td><td>%s</td><td>List of configuration files parsed after php.ini</td></tr>',
+					esc_html( is_array( php_ini_scanned_files() ) ? implode( ', ', php_ini_scanned_files() ) : 'None' )
+				);
 				?>
 				</tbody>
 			</table>
@@ -243,7 +252,7 @@ final class Platforminfo {
 			<?php } ?>
 			<p>OPcache not available.</p>
 			<?php } else { ?>
-			<button type="button" class="platforminfo_collapsible">OPcache Details</button>
+			<button type="button" class="platforminfo_collapsible">OPcache details</button>
 			<div class="platforminfo_content">
 				<p>
 				<?php
