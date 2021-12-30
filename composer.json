@@ -23,8 +23,8 @@
             "@lint-php"
         ],
         "lint-php": [
-            "phpcs --config-set installed_paths `pwd`/vendor/wp-coding-standards/wpcs",
-            "phpcs --standard=WordPress -sv platforminfo.php include/"
+            "./vendor/bin/phpcs --config-set installed_paths `pwd`/vendor/wp-coding-standards/wpcs",
+            "./vendor/bin/phpcs --standard=WordPress -sv platforminfo.php include/"
         ]
     }
 }
