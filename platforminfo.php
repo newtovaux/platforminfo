@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Platform Info
  * Description:       Gives useful infomation for sites on shared-hosting.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Author:            newtovaux

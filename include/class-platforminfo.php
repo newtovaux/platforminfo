@@ -61,7 +61,7 @@ final class Platforminfo {
 	 */
 	public static function platforminfo_options_page() {
 		add_menu_page(
-			'Platform Info - Shared Hosting Details', // $page_title
+			'Platform Info', // $page_title
 			'Platform', // $menu_title
 			'manage_options', // $capability
 			'platforminfo', // $menu_slug
