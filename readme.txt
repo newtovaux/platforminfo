@@ -23,7 +23,7 @@ Intended for use on stand-alone or shared-hosting platforms.
 * Environment variables
 
 ### Support ###
-* Community support via [GitHub issues]((https://github.com/newtovaux/platforminfo/issues).
+* Community support via [GitHub issues](https://github.com/newtovaux/platforminfo/issues).
 
 ### Credits ###
 * Author: [newtovaux](https://github.com/newtovaux)
