@@ -6,7 +6,7 @@ A simple platform information plugin for WordPress. Shows you environment variab
 Intended for use on stand-alone or shared-hosting platforms.
 
 ### Features ###
-* PHP Version
+* PHP version
 * PHP loaded modules
 * PHP OPcache setings
 * Environment variables

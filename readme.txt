@@ -3,7 +3,7 @@ Contributors: newtovaux
 Tags: platforminfo, platform, info, shared-hosting, phpinfo
 Requires at least: 4.7
 Tested up to: 5.8
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -28,11 +28,6 @@ Intended for use on stand-alone or shared-hosting platforms.
 ### Credits ###
 * Author: [newtovaux](https://github.com/newtovaux)
 
-### Contribute ###
-* Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
-* Pull requests for documented bugs or suggested new features are highly appreciated.
-* If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
-
 ## Installation ##
 
 If you don’t know how to install a plugin for WordPress, [here’s how](https://wordpress.org/support/article/managing-plugins/#installing-plugins).
@@ -40,6 +35,11 @@ If you don’t know how to install a plugin for WordPress, [here’s how](https:
 ### Requirements ###
 * Tested with PHP 7.4 or greater (although may work with earlier versions)
 * Tested with WordPress 5.8 or greater (although may work with earlier versions)
+
+## Development ##
+* Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
+* Pull requests for documented bugs or suggested new features are highly appreciated.
+* If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
 
 ## Screenshots ##
 1. PlatformInfo screenshot - Details
