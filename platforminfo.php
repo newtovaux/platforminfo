@@ -36,6 +36,7 @@ spl_autoload_register( 'platforminfo_autoload' );
  * Autoload the classes
  *
  * @param string $class the class name.
+ * @since 1.0.0
  *
  * @return void
  */

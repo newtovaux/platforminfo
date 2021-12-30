@@ -22,11 +22,14 @@ defined( 'ABSPATH' ) || exit;
  * @author   Newtovaux <newtovaux@gmail.com>
  * @license  GPLv2 https://www.gnu.org/licenses/gpl-2.0.html
  * @link     https://github.com/newtovaux/platforminfo
+ * @since    1.0.0
  */
 final class Platforminfo {
 
 	/**
 	 * Psuedo constructor for static instance
+	 *
+	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
@@ -36,6 +39,8 @@ final class Platforminfo {
 
 	/**
 	 * Constructor
+	 *
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 		if ( is_admin() ) {
@@ -47,6 +52,8 @@ final class Platforminfo {
 	/**
 	 * Add the styles and JavaScript
 	 *
+	 * @since 1.0.0
+	 *
 	 * @return void
 	 */
 	public static function platforminfo_load_admin_styles() {
@@ -56,6 +63,8 @@ final class Platforminfo {
 
 	/**
 	 * Add menu item
+	 *
+	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
@@ -73,6 +82,8 @@ final class Platforminfo {
 
 	/**
 	 * Plugin display page
+	 *
+	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
@@ -260,6 +271,8 @@ final class Platforminfo {
 	 * Recursive function to display nested details
 	 *
 	 * @param mixed $entry Nested entry.
+	 * @since 1.0.0
+	 *
 	 * @return void
 	 */
 	public static function recursive_ulli( $entry ) {
