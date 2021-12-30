@@ -50,8 +50,8 @@ final class Platforminfo {
 	 * @return void
 	 */
 	public static function platforminfo_load_admin_styles() {
-		wp_enqueue_style( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/css/platforminfo.css', false );
-		wp_enqueue_script( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/js/platforminfo.js', array(), 5.8, true );
+		wp_enqueue_style( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/css/platforminfo.css', array(), 1.0 );
+		wp_enqueue_script( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/js/platforminfo.js', array(), 1.0, true );
 	}
 
 	/**
