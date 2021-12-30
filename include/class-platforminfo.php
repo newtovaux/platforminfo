@@ -71,7 +71,7 @@ final class Platforminfo {
 	public static function platforminfo_options_page() {
 		add_menu_page(
 			'PlatformInfo', // $page_title
-			'Platform', // $menu_title
+			'PlatformInfo', // $menu_title
 			'manage_options', // $capability
 			'platforminfo', // $menu_slug
 			array( __CLASS__, 'platforminfo_wpplugin_options_page_html' ),
