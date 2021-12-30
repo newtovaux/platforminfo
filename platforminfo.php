@@ -29,23 +29,4 @@ add_action(
 	)
 );
 
-/* Register autoload */
-spl_autoload_register( 'platforminfo_autoload' );
-
-/**
- * Autoload the classes
- *
- * @param string $class the class name.
- * @since 1.0.0
- *
- * @return void
- */
-function platforminfo_autoload( $class ) {
-	if ( in_array( $class, array( 'Platforminfo' ), true ) ) {
-		include_once sprintf(
-			'%s/include/class-%s.php',
-			dirname( __FILE__ ),
-			strtolower( str_replace( '_', '-', $class ) )
-		);
-	}
-}
+require plugin_dir_path( __FILE__ ) . 'include/class-platforminfo.php';
