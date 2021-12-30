@@ -177,7 +177,7 @@ final class Platforminfo {
 							printf( '<tr><td>%s</td><td>(Not set in php.ini)</td><td>%s</td></tr>', esc_html( $setting['setting'] ), esc_html( $setting['description'] ) );
 							break;
 						default:
-							if ( 'bool' === $setting['type'] ) {
+							if ( array_key_exists( 'type', $setting ) && ( 'bool' === $setting['type'] ) ) {
 								printf(
 									'<tr><td>%s</td><td>%s (%s)</td><td>%s</td></tr>',
 									esc_html( $setting['setting'] ),
@@ -185,7 +185,7 @@ final class Platforminfo {
 									$php_ini_settings[ $setting['setting'] ]['local_value'] ? 'True' : 'False',
 									esc_html( $setting['description'] )
 								);
-							} elseif ( 'array' === $setting['type'] ) {
+							} elseif ( array_key_exists( 'type', $setting ) && ( 'array' === $setting['type'] ) ) {
 								printf( '<tr><td>%s</td>', esc_html( $setting['setting'] ) );
 								$types = explode( ',', $php_ini_settings[ $setting['setting'] ]['local_value'] );
 								echo '<td>';
