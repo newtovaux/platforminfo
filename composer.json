@@ -25,6 +25,10 @@
         "lint-php": [
             "./vendor/bin/phpcs --config-set installed_paths `pwd`/vendor/wp-coding-standards/wpcs",
             "./vendor/bin/phpcs --standard=WordPress -sv platforminfo.php include/"
+        ],
+        "build": [
+            "rm -f platforminfo.zip",
+            "pushd .. && zip -9 'platforminfo/platforminfo.zip' -r platforminfo/ -x 'platforminfo/*.git*' -x 'platforminfo/*.zip' -x 'platforminfo/build.sh' x 'platforminfo/vendor/*' -x 'platforminfo/composer.*' -x 'platforminfo/.wordpress-org/*' -x 'platforminfo/README.md'"
         ]
     }
 }
