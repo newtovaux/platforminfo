@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:       Platform Info
  * Description:       Gives useful infomation for sites on shared-hosting.
@@ -19,19 +18,19 @@
  */
 
 /* Quit */
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 /* Hooks */
 add_action(
-    'plugins_loaded',
-    array(
-        'Platforminfo',
-        'instance',
-    )
+	'plugins_loaded',
+	array(
+		'Platforminfo',
+		'instance',
+	)
 );
 
 /* Register autoload */
-spl_autoload_register('Platforminfo_autoload');
+spl_autoload_register( 'platforminfo_autoload' );
 
 /**
  * Autoload the classes
@@ -40,13 +39,12 @@ spl_autoload_register('Platforminfo_autoload');
  *
  * @return void
  */
-function Platforminfo_autoload($class)
-{
-    if (in_array($class, array( 'Platforminfo' ), true)) {
-        include_once sprintf(
-            '%s/include/class-%s.php',
-            dirname(__FILE__),
-            strtolower(str_replace('_', '-', $class))
-        );
-    }
+function platforminfo_autoload( $class ) {
+	if ( in_array( $class, array( 'Platforminfo' ), true ) ) {
+		include_once sprintf(
+			'%s/include/class-%s.php',
+			dirname( __FILE__ ),
+			strtolower( str_replace( '_', '-', $class ) )
+		);
+	}
 }
