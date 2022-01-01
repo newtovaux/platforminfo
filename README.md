@@ -19,6 +19,8 @@ Intended for use on stand-alone or shared-hosting platforms.
 * Author: [newtovaux](https://github.com/newtovaux)
 
 ## Installation ##
+Available in the [WordPress Plugin Directory](https://wordpress.org/plugins/platforminfo).
+
 If you don’t know how to install a plugin for WordPress, [here’s how](https://wordpress.org/support/article/managing-plugins/#installing-plugins).
 
 ### Requirements ###
