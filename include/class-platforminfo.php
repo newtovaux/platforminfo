@@ -135,7 +135,8 @@ final class Platforminfo {
 					echo esc_html( get_admin_page_title() );
 				?>
 			</h1>
-			<h2>Site</h2>
+			<p><a href="#site">Site</a> | <a href="#env">Environment</a> | <a href="#php">PHP</a> | <a href="#ext">Extensions</a> | <a href="#const">Constants</a> | <a href="#opcache">OPcache</a></p>
+			<h2><a id="site">Site</a></h2>
 			<p>Key details of your site's domain, and where it is located on the server.</p>
 			<table class="platforminfo">
 				<tr class="platforminfo_striped">
@@ -145,7 +146,7 @@ final class Platforminfo {
 					<td>WP Home Path</td><td><?php echo esc_html( get_home_path() ); ?></td>
 				</tr>
 			</table>
-			<h2>Environment</h2>
+			<h2><a id="env">Environment</a></h2>
 			<p>Environment variables are dynamic-named values that can affect the way running processes will behave.</p>
 			<button type="button" class="platforminfo_collapsible">Environment details</button>
 			<div class="platforminfo_content">
@@ -171,7 +172,7 @@ final class Platforminfo {
 					</tbody>
 				</table>
 			</div>
-			<h2>PHP</h2>
+			<h2><a id="php">PHP</a></h2>
 			<p>PHP version: <?php echo esc_html( phpversion() ); ?>, php.ini: <?php echo esc_html( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?></p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
@@ -228,7 +229,7 @@ final class Platforminfo {
 				?>
 				</tbody>
 			</table>
-			<h2>PHP Extensions</h2>
+			<h2><a id="ext">PHP Extensions</a></h2>
 			<p>List of all PHP modules compiled and loaded:</p>
 			<div style="border: 1px solid #c3c4c7; background-color: #ffffff; padding: 8px 10px">
 				<ul>
@@ -239,7 +240,31 @@ final class Platforminfo {
 				?>
 				</ul>
 			</div>
-			<h2>PHP OPcache</h2>
+			<h2><a id="const">PHP User Constants</a></h2>
+			<p>A constant is an identifier (name) for a simple value. As the name suggests, that value cannot change during the execution of the script.</p>
+			<button type="button" class="platforminfo_collapsible">Constants details</button>
+			<div class="platforminfo_content">
+				<table class="wp-list-table widefat fixed striped table-view-list">
+					<thead>
+						<tr>
+							<th class="manage-column" width=”50%”>Constant</th>
+							<th class="manage-column" width=”50%”>Value</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+					foreach ( get_defined_constants( true )['user'] as $key => $value ) {
+						printf(
+							'<tr><td>%s</td><td>%s</td></tr>',
+							esc_html( $key ),
+							esc_html( $value )
+						);
+					}
+					?>
+					</tbody>
+				</table>
+			</div>
+			<h2><a id="opcache">PHP OPcache</a></h2>
 			<p>OPcache improves PHP performance by storing precompiled script bytecode in shared memory, thereby removing the need for PHP to load and parse scripts on each request.</p>
 			<?php
 			if ( ! extension_loaded( 'Zend OPcache' ) ) {
