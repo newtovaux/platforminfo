@@ -1,8 +1,8 @@
-# Platforminfo #
+# PlatformInfo #
 A simple platform information plugin for WordPress. Shows you environment variables, PHP settings and more.
 
 ## Description ##
-*Platforminfo* displays, ad-free, important information to help you diagnose issues with your WordPress setup or plugin development.
+*PlatformInfo* displays, ad-free, important information to help you diagnose issues with your WordPress setup or plugin development.
 Intended for use on stand-alone or shared-hosting platforms.
 
 ### Features ###
@@ -10,6 +10,7 @@ Intended for use on stand-alone or shared-hosting platforms.
 * PHP loaded modules
 * PHP OPcache setings
 * Environment variables
+* User constants
 
 ### Support ###
 * Community support via GitHub issues.
