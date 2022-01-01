@@ -21,6 +21,7 @@ Intended for use on stand-alone or shared-hosting platforms.
 * PHP loaded modules
 * PHP OPcache setings
 * Environment variables
+* User constants
 
 ### Support ###
 * Community support via [GitHub issues](https://github.com/newtovaux/platforminfo/issues).
