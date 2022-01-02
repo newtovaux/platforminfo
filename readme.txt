@@ -23,6 +23,18 @@ Intended for use on stand-alone or shared-hosting platforms.
 * Environment variables
 * User constants
 
+### Recent Changelog ###
+
+#### 1.0.6 ####
+* Enhancement: added user constants
+* Enhancement: top menu and anchors
+* Fix: build script as part of cocomposer
+
+#### 1.0.5 ####
+* Enhancement: collapsible environment variables
+* Enhancement: php.ini location and parsing
+* Fix: typos
+
 ### Support ###
 * Community support via [GitHub issues](https://github.com/newtovaux/platforminfo/issues).
 
