@@ -3,7 +3,7 @@ Contributors: newtovaux
 Tags: platforminfo, platform, info, shared-hosting, phpinfo
 Requires at least: 4.7
 Tested up to: 5.8
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -25,7 +25,7 @@ Intended for use on stand-alone or shared-hosting platforms.
 
 ### Recent Changelog ###
 
-#### 1.0.7 ####
+#### 1.0.8 ####
 * Enhancement: copy and paste a value
 
 #### 1.0.6 ####
