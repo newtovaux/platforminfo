@@ -10,6 +10,7 @@
 # Directories
 /.github export-ignore
 /.wordpress-org export-ignore
+/.vscode export-ignore
 /node_modules export-ignore
 /vendor export-ignore
 
@@ -24,4 +25,4 @@
 /package.json export-ignore
 /package-lock.json export-ignore
 /phpcs.xml export-ignore
-/build.sh export-ignore
+/docker-compose.yaml
