@@ -19,7 +19,7 @@
                 "name": "Browser",
                 "color": "white",
                 "singleInstance": true,
-                "command": "google-chrome-stable --incognito http://localhost/ && exit", // This is executed in the terminal.
+                "command": "google-chrome-stable --incognito http://localhost/wp-admin/ && exit", // This is executed in the terminal.
             },
             {
                 "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
@@ -37,7 +37,7 @@
             },
             {
                 "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
-                "name": "Deploy-to-docker",
+                "name": "Deploy",
                 "color": "white",
                 "singleInstance": true,
                 "command": "composer run deploy && exit",
@@ -48,6 +48,34 @@
                 "color": "white",
                 "singleInstance": true,
                 "command": "composer run logs",
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Up",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run up",
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Down",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run down",
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "New",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run new",
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Reset",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run reset",
             },
         ]
     }

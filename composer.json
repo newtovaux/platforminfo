@@ -31,10 +31,27 @@
             "pushd .. && zip -9 'platforminfo/platforminfo.zip' -r platforminfo/ -x 'platforminfo/*.git*' -x 'platforminfo/*.zip' -x 'platforminfo/build.sh' x 'platforminfo/vendor/*' -x 'platforminfo/composer.*' -x 'platforminfo/.wordpress-org/*' -x 'platforminfo/README.md' -x 'platforminfo/.vscode/*'"
         ],
         "deploy": [
+            "docker-compose run --rm cli wp plugin deactivate --all",
+            "docker-compose run --rm cli wp plugin uninstall --all",
+            "@build",
             "docker-compose run --rm cli wp plugin install /plugin/platforminfo.zip --force --activate"
         ],
         "logs": [
             "docker-compose logs -ft wordpress"
+        ],
+        "down": [
+            "docker-compose down"
+        ],
+        "up": [
+            "docker-compose up -d"
+        ],
+        "new": [
+            "docker-compose run --rm cli wp core install --url=\"http://localhost\" --title=Test --admin_user=admin --admin_password=password --skip-email --admin_email=\"test@email.com\""
+        ],
+        "reset": [
+            "docker-compose run --rm cli wp db reset --yes",
+            "@new",
+            "@deploy"
         ]
     }
 }
