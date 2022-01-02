@@ -12,3 +12,9 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+function clipboard(obj) {
+  var tocopy = obj.getAttribute("data-item");
+  navigator.clipboard.writeText(tocopy);
+  alert('Copied to clipboard: ' + tocopy);
+}

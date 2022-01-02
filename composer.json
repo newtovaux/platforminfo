@@ -28,7 +28,13 @@
         ],
         "build": [
             "rm -f platforminfo.zip",
-            "pushd .. && zip -9 'platforminfo/platforminfo.zip' -r platforminfo/ -x 'platforminfo/*.git*' -x 'platforminfo/*.zip' -x 'platforminfo/build.sh' x 'platforminfo/vendor/*' -x 'platforminfo/composer.*' -x 'platforminfo/.wordpress-org/*' -x 'platforminfo/README.md'"
+            "pushd .. && zip -9 'platforminfo/platforminfo.zip' -r platforminfo/ -x 'platforminfo/*.git*' -x 'platforminfo/*.zip' -x 'platforminfo/build.sh' x 'platforminfo/vendor/*' -x 'platforminfo/composer.*' -x 'platforminfo/.wordpress-org/*' -x 'platforminfo/README.md' -x 'platforminfo/.vscode/*'"
+        ],
+        "deploy": [
+            "docker-compose run --rm cli wp plugin install /plugin/platforminfo.zip --force --activate"
+        ],
+        "logs": [
+            "docker-compose logs -ft wordpress"
         ]
     }
 }

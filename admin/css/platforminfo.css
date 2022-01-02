@@ -68,3 +68,8 @@ button.platforminfo_collapsible.platform_active:after {
     border-width: 0px 1px 1px 1px ;
     padding: 8px 10px;
   }
+
+
+  a.platform_clipboard {
+    text-decoration: none;
+  }

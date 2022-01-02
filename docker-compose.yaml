@@ -1,0 +1,59 @@
+services:
+  db:
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    expose:
+      - 3306
+      - 33060
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 80:80
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DEBUG=true
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+     - wp_data:/var/www/html/
+  cli:
+   image: wordpress:cli
+   user: "33:33"
+   environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DEBUG=true
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+   volumes:
+     - wp_data:/var/www/html/
+     - ./:/plugin
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    restart: always
+    volumes:
+      - redis_data:/data
+volumes:
+  db_data:
+  redis_data:
+  wp_data:
+
+  
+    

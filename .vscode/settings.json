@@ -1,0 +1,54 @@
+{
+    "editor.tabSize": 4,
+
+    "json.maxItemsComputed": 50000,
+
+    "phpmd.enabled": false,
+
+    "phpcs.enable": true,
+    "phpcs.executablePath": "./vendor/bin/phpcs",
+    "phpcs.standard": "WordPress",
+
+    "actionButtons": {
+        "defaultColor": "white", // Can also use string color names.
+        "loadNpmCommands":true, // Disables automatic generation of actions for npm commands.
+        "reloadButton":"♻️", // Custom reload button text or icon (default ↻). null value enables automatic reload on configuration change
+        "commands": [
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Browser",
+                "color": "white",
+                "singleInstance": true,
+                "command": "google-chrome-stable --incognito http://localhost/ && exit", // This is executed in the terminal.
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Lint",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run lint-all", // This is executed in the terminal.
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Build",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run build && exit", // This is executed in the terminal.
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Deploy-to-docker",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run deploy && exit",
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Logs",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run logs",
+            },
+        ]
+    }
+  }

@@ -140,10 +140,16 @@ final class Platforminfo {
 			<p>Key details of your site's domain, and where it is located on the server.</p>
 			<table class="platforminfo">
 				<tr class="platforminfo_striped">
-					<td>URL</td><td><?php echo esc_html( site_url() ); ?></td>
+					<td>
+						URL</td><td><?php echo esc_html( site_url() ); ?> 
+						<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( site_url() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+					</td>
 				</tr>
 				<tr class="platforminfo_striped">
-					<td>WP Home Path</td><td><?php echo esc_html( get_home_path() ); ?></td>
+					<td>
+						WP Home Path</td><td><?php echo esc_html( get_home_path() ); ?>
+						<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( get_home_path() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+					</td>
 				</tr>
 			</table>
 			<h2><a id="env">Environment</a></h2>
@@ -173,7 +179,10 @@ final class Platforminfo {
 				</table>
 			</div>
 			<h2><a id="php">PHP</a></h2>
-			<p>PHP version: <?php echo esc_html( phpversion() ); ?>, php.ini: <?php echo esc_html( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?></p>
+			<p>
+				PHP version: <?php echo esc_html( phpversion() ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( phpversion() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>, 
+				php.ini: <?php echo esc_html( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+			</p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
 					<tr>
