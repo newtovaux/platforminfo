@@ -46,6 +46,7 @@ final class Platforminfo {
 		if ( is_admin() ) {
 			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'platforminfo_load_admin_styles' ) );
 			add_action( 'admin_menu', array( __CLASS__, 'platforminfo_options_page' ) );
+			add_filter( 'plugin_action_links_platforminfo/platforminfo.php', array( __CLASS__, 'action_links' ) );
 		}
 	}
 
@@ -59,6 +60,34 @@ final class Platforminfo {
 	public static function platforminfo_load_admin_styles() {
 		wp_enqueue_style( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/css/platforminfo.css', array(), 1.0 );
 		wp_enqueue_script( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/js/platforminfo.js', array(), 1.0, true );
+	}
+
+	/**
+	 * Add the additional links on the plugins list
+	 *
+	 * @since 1.0.9
+	 *
+	 * @param array $links Array of action links.
+	 *
+	 * @return array
+	 */
+	public static function action_links( $links ) {
+		// Build and escape the URL.
+		$url = esc_url(
+			add_query_arg(
+				'page',
+				'platforminfo',
+				get_admin_url() . 'admin.php'
+			)
+		);
+		// Create the link.
+		$settings_link = sprintf( '<a href="%s">%s</a>', $url, __( 'Info' ) );
+		// Adds the link to the end of the array.
+		array_push(
+			$links,
+			$settings_link
+		);
+		return $links;
 	}
 
 	/**
