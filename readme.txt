@@ -37,7 +37,7 @@ Intended for use on stand-alone or shared-hosting platforms.
 #### 1.0.6 ####
 * Enhancement: added user constants
 * Enhancement: top menu and anchors
-* Fix: build script as part of cocomposer
+* Fix: build script as part of composer
 
 #### 1.0.5 ####
 * Enhancement: collapsible environment variables
@@ -62,6 +62,7 @@ If you don’t know how to install a plugin for WordPress, [here’s how](https:
 
 ## Contribute ##
 * Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
+* Help [translate this plugin](https://translate.wordpress.org/projects/wp-plugins/platforminfo/) into other languages.
 * Pull requests for documented bugs or suggested new features are highly appreciated.
 * If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
 

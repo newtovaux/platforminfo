@@ -16,7 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.6 ##
 * Enhancement: added user constants
 * Enhancement: top menu and anchors
-* Fix: build script as part of cocomposer
+* Fix: build script as part of composer
 
 ## 1.0.5 ##
 * Enhancement: collapsible environment variables
