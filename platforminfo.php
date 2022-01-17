@@ -9,6 +9,7 @@
  * Author:            newtovaux
  * Author URI:        https://github.com/newtovaux/
  * License:           GPLv2
+ * Text Domain:       platforminfo
  *
  * PHP version 7.4
  *

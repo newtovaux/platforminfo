@@ -81,7 +81,7 @@ final class Platforminfo {
 			)
 		);
 		// Create the link.
-		$settings_link = sprintf( '<a href="%s">%s</a>', $url, __( 'Info' ) );
+		$settings_link = sprintf( '<a href="%s">%s</a>', $url, esc_html__( 'Info', 'platforminfo' ) );
 		// Adds the link to the end of the array.
 		array_push(
 			$links,
@@ -127,33 +127,33 @@ final class Platforminfo {
 		$settings_to_display = array(
 			array(
 				'setting'     => 'file_uploads',
-				'description' => 'Whether or not to allow HTTP file uploads',
+				'description' => __( 'Whether or not to allow HTTP file uploads', 'platforminfo' ),
 				'type'        => 'bool',
 			),
 			array(
 				'setting'     => 'post_max_size',
-				'description' => 'Sets max size of post data allowed. This setting also affects file upload',
+				'description' => __( 'Sets max size of post data allowed. This setting also affects file upload', 'platforminfo' ),
 			),
 			array(
 				'setting'     => 'upload_max_filesize',
-				'description' => 'The maximum size of an uploaded file',
+				'description' => __( 'The maximum size of an uploaded file', 'platforminfo' ),
 			),
 			array(
 				'setting'     => 'memory_limit',
-				'description' => 'This sets the maximum amount of memory in bytes that a script is allowed to allocate',
+				'description' => __( 'This sets the maximum amount of memory in bytes that a script is allowed to allocate', 'platforminfo' ),
 			),
 			array(
 				'setting'     => 'disable_functions',
-				'description' => 'This directive allows you to disable certain functions',
+				'description' => __( 'This directive allows you to disable certain functions', 'platforminfo' ),
 				'type'        => 'array',
 			),
 			array(
 				'setting'     => 'max_execution_time',
-				'description' => 'This sets the maximum time in seconds a script is allowed to run before it is terminated by the parser',
+				'description' => __( 'This sets the maximum time in seconds a script is allowed to run before it is terminated by the parser', 'platforminfo' ),
 			),
 			array(
 				'setting'     => 'display_errors',
-				'description' => 'This determines whether errors should be printed to the screen as part of the output or if they should be hidden from the user',
+				'description' => __( 'This determines whether errors should be printed to the screen as part of the output or if they should be hidden from the user', 'platforminfo' ),
 				'type'        => 'bool',
 			),
 		);
@@ -164,13 +164,15 @@ final class Platforminfo {
 					echo esc_html( get_admin_page_title() );
 				?>
 			</h1>
-			<p><a href="#site">Site</a> | <a href="#env">Environment</a> | <a href="#php">PHP</a> | <a href="#ext">Extensions</a> | <a href="#const">Constants</a> | <a href="#opcache">OPcache</a></p>
-			<h2><a id="site">Site</a></h2>
-			<p>Key details of your site's domain, and where it is located on the server.</p>
+			<p>
+				<a href="#site">Site</a> | <a href="#env">Environment</a> | <a href="#php">PHP</a> | <a href="#ext">Extensions</a> | <a href="#const">Constants</a> | <a href="#opcache">OPcache</a>
+			</p>
+			<h2><a id="site"><?php esc_html_e( 'Site', 'platforminfo' ); ?></a></h2>
+			<p><?php esc_html_e( 'Key details of your site\'s domain, and where it is located on the server.', 'platforminfo' ); ?></p>
 			<table class="platforminfo">
 				<tr class="platforminfo_striped">
-					<td>
-						URL</td><td><?php echo esc_html( site_url() ); ?> 
+					<td><?php esc_html_e( 'URL' ); ?></td>
+					<td><?php echo esc_html( site_url() ); ?> 
 						<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( site_url() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
 					</td>
 				</tr>
@@ -181,15 +183,15 @@ final class Platforminfo {
 					</td>
 				</tr>
 			</table>
-			<h2><a id="env">Environment</a></h2>
-			<p>Environment variables are dynamic-named values that can affect the way running processes will behave.</p>
-			<button type="button" class="platforminfo_collapsible">Environment details</button>
+			<h2><a id="env"><?php esc_html_e( 'Environment', 'platforminfo' ); ?></a></h2>
+			<p><?php esc_html_e( 'Environment variables are dynamic-named values that can affect the way running processes will behave.', 'platforminfo' ); ?></p>
+			<button type="button" class="platforminfo_collapsible"><?php esc_html_e( 'Environment details', 'platforminfo' ); ?></button>
 			<div class="platforminfo_content">
 				<table class="wp-list-table widefat fixed striped table-view-list">
 					<thead>
 						<tr>
-							<th class="manage-column">Environment variable</th>
-							<th class="manage-column">Value</th>
+							<th class="manage-column"><?php esc_html_e( 'Environment variable', 'platforminfo' ); ?></th>
+							<th class="manage-column"><?php esc_html_e( 'Value', 'platforminfo' ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -207,10 +209,10 @@ final class Platforminfo {
 					</tbody>
 				</table>
 			</div>
-			<h2><a id="php">PHP</a></h2>
+			<h2><a id="php"><?php esc_html_e( 'PHP', 'platforminfo' ); ?></a></h2>
 			<p>
-				PHP version: <?php echo esc_html( phpversion() ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( phpversion() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>, 
-				php.ini: <?php echo esc_html( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+			<?php esc_html_e( 'PHP version', 'platforminfo' ); ?>: <?php echo esc_html( phpversion() ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( phpversion() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>, 
+				php.ini: <?php echo esc_html( php_ini_loaded_file() ? php_ini_loaded_file() : esc_html__( 'None', 'platforminfo' ) ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
 			</p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
@@ -225,11 +227,21 @@ final class Platforminfo {
 				foreach ( $settings_to_display as $setting ) {
 					switch ( $php_ini_settings[ $setting['setting'] ]['local_value'] ) {
 						case '-1':
-							printf( '<tr><td>%s</td><td>-1 (Unlimited by PHP)</td><td>%s</td></tr>', esc_html( $setting['setting'] ), esc_html( $setting['description'] ) );
+							printf(
+								'<tr><td>%s</td><td>-1 (%s)</td><td>%s</td></tr>',
+								esc_html( $setting['setting'] ),
+								esc_html__( 'Unlimited by PHP', 'platforminfo' ),
+								esc_html( $setting['description'] )
+							);
 							break;
 						case null:
 						case '':
-							printf( '<tr><td>%s</td><td>(Not set in php.ini)</td><td>%s</td></tr>', esc_html( $setting['setting'] ), esc_html( $setting['description'] ) );
+							printf(
+								'<tr><td>%s</td><td>(%s)</td><td>%s</td></tr>',
+								esc_html( $setting['setting'] ),
+								esc_html__( 'Not set in php.ini', 'platforminfo' ),
+								esc_html( $setting['description'] )
+							);
 							break;
 						default:
 							if ( array_key_exists( 'type', $setting ) && ( 'bool' === $setting['type'] ) ) {
@@ -261,14 +273,15 @@ final class Platforminfo {
 					}
 				}
 				printf(
-					'<tr><td>php_ini_scanned_files()</td><td>%s</td><td>List of configuration files parsed after php.ini</td></tr>',
-					esc_html( is_array( php_ini_scanned_files() ) ? implode( ', ', php_ini_scanned_files() ) : 'None' )
+					'<tr><td>php_ini_scanned_files()</td><td>%s</td><td>%s</td></tr>',
+					esc_html( is_array( php_ini_scanned_files() ) ? implode( ', ', php_ini_scanned_files() ) : 'None' ),
+					esc_html__( 'List of configuration files parsed after php.ini', 'platforminfo' )
 				);
 				?>
 				</tbody>
 			</table>
-			<h2><a id="ext">PHP Extensions</a></h2>
-			<p>List of all PHP modules compiled and loaded:</p>
+			<h2><a id="ext"><?php esc_html_e( 'PHP Extensions', 'platforminfo' ); ?></a></h2>
+			<p><?php esc_html_e( 'List of all PHP modules compiled and loaded', 'platforminfo' ); ?>:</p>
 			<div style="border: 1px solid #c3c4c7; background-color: #ffffff; padding: 8px 10px">
 				<ul>
 				<?php
@@ -278,8 +291,8 @@ final class Platforminfo {
 				?>
 				</ul>
 			</div>
-			<h2><a id="const">PHP User Constants</a></h2>
-			<p>A constant is an identifier (name) for a simple value. As the name suggests, that value cannot change during the execution of the script.</p>
+			<h2><a id="const"><?php esc_html_e( 'PHP User Constants', 'platforminfo' ); ?></a></h2>
+			<p><?php esc_html_e( 'A constant is an identifier (name) for a simple value. As the name suggests, that value cannot change during the execution of the script.', 'platforminfo' ); ?></p>
 			<button type="button" class="platforminfo_collapsible">Constants details</button>
 			<div class="platforminfo_content">
 				<table class="wp-list-table widefat fixed striped table-view-list">
@@ -302,18 +315,18 @@ final class Platforminfo {
 					</tbody>
 				</table>
 			</div>
-			<h2><a id="opcache">PHP OPcache</a></h2>
-			<p>OPcache improves PHP performance by storing precompiled script bytecode in shared memory, thereby removing the need for PHP to load and parse scripts on each request.</p>
+			<h2><a id="opcache"><?php esc_html_e( 'PHP OPcache', 'platforminfo' ); ?></a></h2>
+			<p><?php esc_html_e( 'OPcache improves PHP performance by storing precompiled script bytecode in shared memory, thereby removing the need for PHP to load and parse scripts on each request.', 'platforminfo' ); ?></p>
 			<?php
 			if ( ! extension_loaded( 'Zend OPcache' ) ) {
 				?>
-			<div class="notice notice-error"><p>You do not have the Zend OPcache extension loaded.</p></div>
+			<div class="notice notice-error"><p><?php esc_html_e( 'You do not have the Zend OPcache extension loaded.', 'platforminfo' ); ?></p></div>
 				<?php
 				if ( function_exists( 'dl' ) === false ) {
 					?>
-				<div class="notice notice-error"><p>Unable to load Zend OPcache extension.</p></div>
+				<div class="notice notice-error"><p><?php esc_html_e( 'Unable to load Zend OPcache extension.', 'platforminfo' ); ?></p></div>
 			<?php } ?>
-			<p>OPcache not available.</p>
+			<p><?php esc_html_e( 'OPcache not available.', 'platforminfo' ); ?></p>
 			<?php } else { ?>
 			<button type="button" class="platforminfo_collapsible">OPcache details</button>
 			<div class="platforminfo_content">
@@ -322,12 +335,12 @@ final class Platforminfo {
 				if ( function_exists( 'opcache_get_configuration' ) ) {
 
 					$config = opcache_get_configuration();
-					echo '<h3>OPcache Configuration</h3>';
+					echo '<h3>' . esc_html__( 'OPcache Configuration', 'platforminfo' ) . '</h3>';
 					self::recursive_ulli( $config );
 
 					$status = opcache_get_status();
 					unset( $status['scripts'] );
-					echo '<h3>OPcache Status</h3>';
+					echo '<h3>' . esc_html__( 'OPcache Status' ) . '</h3>';
 					self::recursive_ulli( $status );
 				}
 				?>
@@ -360,7 +373,11 @@ final class Platforminfo {
 					echo '<li>';
 					printf( '%s = ', esc_html( $key ) );
 					if ( is_bool( $value ) ) {
-						echo $value ? 'true' : 'false';
+						if ( true === $value ) {
+							echo esc_html__( 'true', 'platforminfo' );
+						} else {
+							echo esc_html__( 'false', 'platforminfo' );
+						}
 					} else {
 						echo esc_html( $value );
 					}
