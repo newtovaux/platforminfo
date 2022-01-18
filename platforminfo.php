@@ -23,13 +23,20 @@
 /* Quit */
 defined( 'ABSPATH' ) || exit;
 
+/* Define user constants */
+if ( ! defined( 'PLATFORMINFO_BASE' ) ) {
+	define( 'PLATFORMINFO_BASE', plugin_basename( __FILE__ ) );
+}
+
+/**
+ * Ignore.
+ *
+ * @psalm-suppress UnresolvableInclude
+ */
+require plugin_dir_path( __FILE__ ) . 'include/class-platforminfo.php';
+
 /* Hooks */
 add_action(
 	'plugins_loaded',
-	array(
-		'Platforminfo',
-		'instance',
-	)
+	'Platforminfo::instance()'
 );
-
-require plugin_dir_path( __FILE__ ) . 'include/class-platforminfo.php';

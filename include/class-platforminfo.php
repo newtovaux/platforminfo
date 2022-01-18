@@ -46,7 +46,11 @@ final class Platforminfo {
 		if ( is_admin() ) {
 			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'platforminfo_load_admin_styles' ) );
 			add_action( 'admin_menu', array( __CLASS__, 'platforminfo_options_page' ) );
-			add_filter( 'plugin_action_links_platforminfo/platforminfo.php', array( __CLASS__, 'action_links' ) );
+			/**
+			 * Ignore PLATFORMINFO_BASE, it is defined elsewhere.
+			 *
+			 * @psalm-suppress UndefinedConstant */
+			add_filter( 'plugin_action_links_' . PLATFORMINFO_BASE, array( __CLASS__, 'action_links' ) );
 		}
 	}
 
@@ -58,8 +62,8 @@ final class Platforminfo {
 	 * @return void
 	 */
 	public static function platforminfo_load_admin_styles() {
-		wp_enqueue_style( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/css/platforminfo.css', array(), 1.0 );
-		wp_enqueue_script( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/js/platforminfo.js', array(), 1.0, true );
+		wp_enqueue_style( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/css/platforminfo.css', array(), '1.0' );
+		wp_enqueue_script( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/js/platforminfo.js', array(), '1.0', true );
 	}
 
 	/**
@@ -272,9 +276,10 @@ final class Platforminfo {
 							break;
 					}
 				}
+				$php_inis = php_ini_scanned_files();
 				printf(
 					'<tr><td>php_ini_scanned_files()</td><td>%s</td><td>%s</td></tr>',
-					esc_html( is_array( php_ini_scanned_files() ) ? implode( ', ', php_ini_scanned_files() ) : 'None' ),
+					esc_html( ( false === php_ini_scanned_files() ) ? 'None' : php_ini_scanned_files() ),
 					esc_html__( 'List of configuration files parsed after php.ini', 'platforminfo' )
 				);
 				?>
@@ -308,7 +313,7 @@ final class Platforminfo {
 						printf(
 							'<tr><td>%s</td><td>%s</td></tr>',
 							esc_html( $key ),
-							esc_html( $value )
+							is_string( $value ) ? esc_html( $value ) : esc_html__( 'None' )
 						);
 					}
 					?>
