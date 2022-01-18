@@ -30,6 +30,13 @@
             },
             {
                 "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Analyse",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run analyse", // This is executed in the terminal.
+            },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
                 "name": "Build",
                 "color": "white",
                 "singleInstance": true,
