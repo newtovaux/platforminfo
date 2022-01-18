@@ -38,5 +38,5 @@ require plugin_dir_path( __FILE__ ) . 'include/class-platforminfo.php';
 /* Hooks */
 add_action(
 	'plugins_loaded',
-	'Platforminfo::instance()'
+	'Platforminfo::instance'
 );
