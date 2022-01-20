@@ -33,7 +33,7 @@ If you don’t know how to install a plugin for WordPress, [here’s how](https:
 ## Contribute ##
 * Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
 * Pull requests for documented bugs or suggested new features are highly appreciated.
-* If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
+* If you think you’ve found a bug (e.g. you’re experiencing unexpected behaviour), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
 
 
 

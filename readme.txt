@@ -70,7 +70,7 @@ If you don’t know how to install a plugin for WordPress, there is a guide avai
 * Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
 * Help [translate this plugin](https://translate.wordpress.org/projects/wp-plugins/platforminfo/) into other languages.
 * Pull requests for documented bugs or suggested new features are highly appreciated.
-* If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
+* If you think you’ve found a bug (e.g. you’re experiencing unexpected behaviour), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
 
 ## Screenshots ##
 1. PlatformInfo screenshot
