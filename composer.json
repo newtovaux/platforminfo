@@ -1,6 +1,6 @@
 {
     "name": "newtovaux/platforminfo",
-    "description": "This WordPress plugin gives useful infomation for sites on shared-hosting.",
+    "description": "This WordPress plugin gives useful information for sites on shared-hosting.",
     "type": "project",
     "license": "GPLv2",
     "autoload": {

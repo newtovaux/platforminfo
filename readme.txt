@@ -19,11 +19,11 @@ Intended for use on stand-alone or shared-hosting platforms.
 ### Features ###
 * PHP version
 * PHP loaded modules
-* PHP OPcache setings
+* PHP OPcache settings
 * Environment variables
 * User constants
 
-### Recent Changelog ###
+### Changelog ###
 
 #### 1.1.0 ####
 * Enhancement: added translation strings and text domains
@@ -45,14 +45,14 @@ Intended for use on stand-alone or shared-hosting platforms.
 * Fix: typos
 
 ### Support ###
-* Community support via [GitHub issues](https://github.com/newtovaux/platforminfo/issues).
+* Community support via GitHub issues. https://github.com/newtovaux/platforminfo/issues
 
 ### Credits ###
 * Author: [newtovaux](https://github.com/newtovaux)
 
 ## Installation ##
 
-Available in the [WordPress Plugin Directory](https://wordpress.org/plugins/platforminfo).
+Available in the WordPress Plugin Directory. https://wordpress.org/plugins/platforminfo
 
 If you don’t know how to install a plugin for WordPress, [here’s how](https://wordpress.org/support/article/managing-plugins/#installing-plugins).
 
@@ -67,4 +67,4 @@ If you don’t know how to install a plugin for WordPress, [here’s how](https:
 * If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
 
 ## Screenshots ##
-1. PlatformInfo screenshot - Details
+1. PlatformInfo screenshot

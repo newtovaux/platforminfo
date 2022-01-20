@@ -11,7 +11,7 @@ Intended for use on stand-alone or shared-hosting platforms.
 ### Features ###
 * PHP version
 * PHP loaded modules
-* PHP OPcache setings
+* PHP OPcache settings
 * Environment variables
 * User constants
 
