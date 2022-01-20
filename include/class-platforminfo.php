@@ -136,7 +136,7 @@ final class Platforminfo {
 			),
 			array(
 				'setting'     => 'post_max_size',
-				'description' => __( 'Sets max size of post data allowed. This setting also affects file upload', 'platforminfo' ),
+				'description' => __( 'Sets the maximum size of POST data allowed. This setting also affects file uploads', 'platforminfo' ),
 			),
 			array(
 				'setting'     => 'upload_max_filesize',
@@ -285,7 +285,7 @@ final class Platforminfo {
 				?>
 				</tbody>
 			</table>
-			<h2><a id="ext"><?php esc_html_e( 'PHP Extensions', 'platforminfo' ); ?></a></h2>
+			<h2><a id="ext">PHP <?php esc_html_e( 'Extensions', 'platforminfo' ); ?></a></h2>
 			<p><?php esc_html_e( 'List of all PHP modules compiled and loaded', 'platforminfo' ); ?>:</p>
 			<div style="border: 1px solid #c3c4c7; background-color: #ffffff; padding: 8px 10px">
 				<ul>
@@ -296,7 +296,7 @@ final class Platforminfo {
 				?>
 				</ul>
 			</div>
-			<h2><a id="const"><?php esc_html_e( 'PHP User Constants', 'platforminfo' ); ?></a></h2>
+			<h2><a id="const">PHP <?php esc_html_e( 'Constants (User)', 'platforminfo' ); ?></a></h2>
 			<p><?php esc_html_e( 'A constant is an identifier (name) for a simple value. As the name suggests, that value cannot change during the execution of the script.', 'platforminfo' ); ?></p>
 			<button type="button" class="platforminfo_collapsible">Constants details</button>
 			<div class="platforminfo_content">
@@ -340,12 +340,12 @@ final class Platforminfo {
 				if ( function_exists( 'opcache_get_configuration' ) ) {
 
 					$config = opcache_get_configuration();
-					echo '<h3>' . esc_html__( 'OPcache Configuration', 'platforminfo' ) . '</h3>';
+					echo '<h3>OPcache ' . esc_html__( 'Configuration', 'platforminfo' ) . '</h3>';
 					self::recursive_ulli( $config );
 
 					$status = opcache_get_status();
 					unset( $status['scripts'] );
-					echo '<h3>' . esc_html__( 'OPcache Status' ) . '</h3>';
+					echo '<h3>OPcache ' . esc_html__( 'Status' ) . '</h3>';
 					self::recursive_ulli( $status );
 				}
 				?>
