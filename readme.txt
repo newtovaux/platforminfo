@@ -48,16 +48,16 @@ Intended for use on stand-alone or shared-hosting platforms.
 * Fix: typos
 
 ### Support ###
-* Community support via GitHub issues. https://github.com/newtovaux/platforminfo/issues
+* Community support via GitHub issues. <https://github.com/newtovaux/platforminfo/issues>
 
 ### Credits ###
 * Author: [newtovaux](https://github.com/newtovaux)
 
 ## Installation ##
 
-Available in the WordPress Plugin Directory. https://wordpress.org/plugins/platforminfo
+Available in the WordPress Plugin Directory. <https://wordpress.org/plugins/platforminfo>
 
-If you don’t know how to install a plugin for WordPress, [here’s how](https://wordpress.org/support/article/managing-plugins/#installing-plugins).
+If you don’t know how to install a plugin for WordPress, there is a guide available: <https://wordpress.org/support/article/managing-plugins/#installing-plugins>
 
 ### Requirements ###
 * Tested with PHP 7.4 or greater (although may work with earlier versions)
