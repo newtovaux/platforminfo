@@ -169,7 +169,7 @@ final class Platforminfo {
 				?>
 			</h1>
 			<p>
-				<a href="#site">Site</a> | <a href="#env">Environment</a> | <a href="#php">PHP</a> | <a href="#ext">Extensions</a> | <a href="#const">Constants</a> | <a href="#opcache">OPcache</a>
+				<a href="#site"><?php esc_html_e( 'Site', 'platforminfo' ); ?></a> | <a href="#env"><?php esc_html_e( 'Environment', 'platforminfo' ); ?></a> | <a href="#php">PHP</a> | <a href="#ext"><?php esc_html_e( 'Extensions', 'platforminfo' ); ?></a> | <a href="#const"><?php esc_html_e( 'Constants', 'platforminfo' ); ?></a> | <a href="#opcache">OPcache</a>
 			</p>
 			<h2><a id="site"><?php esc_html_e( 'Site', 'platforminfo' ); ?></a></h2>
 			<p><?php esc_html_e( 'Key details of your site\'s domain, and where it is located on the server.', 'platforminfo' ); ?></p>
@@ -182,7 +182,7 @@ final class Platforminfo {
 				</tr>
 				<tr class="platforminfo_striped">
 					<td>
-						WP Home Path</td><td><?php echo esc_html( get_home_path() ); ?>
+						WordPress Home Path</td><td><?php echo esc_html( get_home_path() ); ?>
 						<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( get_home_path() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
 					</td>
 				</tr>
@@ -215,8 +215,30 @@ final class Platforminfo {
 			</div>
 			<h2><a id="php"><?php esc_html_e( 'PHP', 'platforminfo' ); ?></a></h2>
 			<p>
-			<?php esc_html_e( 'PHP version', 'platforminfo' ); ?>: <?php echo esc_html( phpversion() ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( phpversion() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>, 
-				php.ini: <?php echo esc_html( php_ini_loaded_file() ? php_ini_loaded_file() : esc_html__( 'None', 'platforminfo' ) ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( php_ini_loaded_file() ? php_ini_loaded_file() : 'None' ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+				PHP <?php esc_html_e( 'version', 'platforminfo' ); ?>: <?php echo esc_html( phpversion() ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( phpversion() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>, 
+				php.ini: 
+				<?php
+				if ( false === php_ini_loaded_file() ) {
+					esc_html_e( 'None', 'platforminfo' );
+				} else {
+					echo esc_html( php_ini_loaded_file() );
+					?>
+						<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( php_ini_loaded_file() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+					<?php
+				}
+				?>
+			</p>
+			<p>
+				<?php esc_html_e( 'Scanned files', 'platforminfo' ); ?>: 
+				<?php
+				$inis = php_ini_scanned_files();
+				if ( ( false === $inis ) || ( 0 === strlen( $inis ) ) ) {
+					esc_html_e( 'None', 'platforminfo' );
+				} else {
+					echo esc_html( php_ini_scanned_files() );
+					?>
+					<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( php_ini_scanned_files() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+				<?php } ?>
 			</p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
@@ -276,12 +298,6 @@ final class Platforminfo {
 							break;
 					}
 				}
-				$php_inis = php_ini_scanned_files();
-				printf(
-					'<tr><td>php_ini_scanned_files()</td><td>%s</td><td>%s</td></tr>',
-					esc_html( ( false === php_ini_scanned_files() ) ? 'None' : php_ini_scanned_files() ),
-					esc_html__( 'List of configuration files parsed after php.ini', 'platforminfo' )
-				);
 				?>
 				</tbody>
 			</table>
@@ -298,7 +314,7 @@ final class Platforminfo {
 			</div>
 			<h2><a id="const">PHP <?php esc_html_e( 'Constants (User)', 'platforminfo' ); ?></a></h2>
 			<p><?php esc_html_e( 'A constant is an identifier (name) for a simple value. As the name suggests, that value cannot change during the execution of the script.', 'platforminfo' ); ?></p>
-			<button type="button" class="platforminfo_collapsible">Constants details</button>
+			<button type="button" class="platforminfo_collapsible">Constants  <?php esc_html_e( 'details', 'platforminfo' ); ?></button>
 			<div class="platforminfo_content">
 				<table class="wp-list-table widefat fixed striped table-view-list">
 					<thead>
@@ -333,7 +349,7 @@ final class Platforminfo {
 			<?php } ?>
 			<p><?php esc_html_e( 'OPcache not available.', 'platforminfo' ); ?></p>
 			<?php } else { ?>
-			<button type="button" class="platforminfo_collapsible">OPcache details</button>
+			<button type="button" class="platforminfo_collapsible">OPcache <?php esc_html_e( 'details', 'platforminfo' ); ?></button>
 			<div class="platforminfo_content">
 				<p>
 				<?php

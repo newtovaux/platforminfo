@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.3 ##
+* Enhancement: better placement of php.ini
+
 ## 1.1.2 ##
 * Enhancement: better translation strings
 

@@ -19,7 +19,7 @@
                 "name": "Browser",
                 "color": "white",
                 "singleInstance": true,
-                "command": "google-chrome-stable --incognito http://localhost/wp-admin/ && exit", // This is executed in the terminal.
+                "command": "google-chrome-stable http://localhost/wp-admin/ && exit", // This is executed in the terminal.
             },
             {
                 "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults

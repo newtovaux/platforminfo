@@ -1,6 +1,6 @@
 {
     "name": "newtovaux/platforminfo",
-    "description": "This WordPress plugin gives useful information for sites on shared-hosting.",
+    "description": "PlatformInfo displays, ad-free and no-nag, important information to help you diagnose issues with your WordPress setup or plugin development.",
     "type": "project",
     "license": "GPLv2",
     "autoload": {

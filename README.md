@@ -2,11 +2,12 @@
 A simple platform information plugin for WordPress. Shows you environment variables, PHP settings and more.
 
 ![](https://github.com/newtovaux/platforminfo/actions/workflows/test.yml/badge.svg)
+![](https://github.com/newtovaux/platforminfo/actions/workflows/static-analysis.yml/badge.svg)
 ![](https://github.com/newtovaux/platforminfo/actions/workflows/wordpress-plugin-deploy.yml/badge.svg)
 
 ## Description ##
 *PlatformInfo* displays, ad-free, important information to help you diagnose issues with your WordPress setup or plugin development.
-Intended for use on stand-alone or shared-hosting platforms.
+Intended for use on stand-alone or shared hosting platforms.
 
 ### Features ###
 * PHP version
@@ -33,7 +34,8 @@ If you don’t know how to install a plugin for WordPress, [here’s how](https:
 ## Contribute ##
 * Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
 * Pull requests for documented bugs or suggested new features are highly appreciated.
-* If you think you’ve found a bug (e.g. you’re experiencing unexpected behaviour), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
+* If you have found a bug or you are experiencing unexpected behaviour, then please raise an issue.
+* <https://github.com/newtovaux/platforminfo/issues/new>
 
 
 

@@ -3,7 +3,7 @@ Contributors: newtovaux
 Tags: platforminfo, platform, info, shared-hosting, phpinfo
 Requires at least: 4.7
 Tested up to: 5.8
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ A simple platform information plugin for WordPress. Shows you environment variab
 
 *PlatformInfo* displays, ad-free and no-nag, important information to help you diagnose issues with your WordPress setup or plugin development.
 
-Intended for use on stand-alone or shared-hosting platforms.
+Intended for use on stand-alone or shared hosting platforms.
 
 ### Features ###
 * PHP version
@@ -24,6 +24,9 @@ Intended for use on stand-alone or shared-hosting platforms.
 * User constants
 
 ### Changelog ###
+
+#### 1.1.3 ####
+* Enhancement: better placement of php.ini
 
 #### 1.1.2 ####
 * Enhancement: better translation strings
@@ -58,7 +61,9 @@ Intended for use on stand-alone or shared-hosting platforms.
 
 ## Installation ##
 
-Available in the WordPress Plugin Directory. <https://wordpress.org/plugins/platforminfo>
+The PlatformInfo plugin is available in the WordPress Plugin Directory.
+
+<https://wordpress.org/plugins/platforminfo>
 
 If you don’t know how to install a plugin for WordPress, there is a guide available: <https://wordpress.org/support/article/managing-plugins/#installing-plugins>
 
@@ -70,7 +75,8 @@ If you don’t know how to install a plugin for WordPress, there is a guide avai
 * Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
 * Help [translate this plugin](https://translate.wordpress.org/projects/wp-plugins/platforminfo/) into other languages.
 * Pull requests for documented bugs or suggested new features are highly appreciated.
-* If you think you’ve found a bug (e.g. you’re experiencing unexpected behaviour), please [raise an issue](https://github.com/newtovaux/platforminfo/issues/new) first.
+* If you have found a bug or you are experiencing unexpected behaviour, then please raise an issue.
+* <https://github.com/newtovaux/platforminfo/issues/new>
 
 ## Screenshots ##
 1. PlatformInfo screenshot
