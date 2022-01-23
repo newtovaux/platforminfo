@@ -1,10 +1,8 @@
 # PlatformInfo #
 Contributors: newtovaux
 Tags: platforminfo, platform, info, shared-hosting, phpinfo
-Requires at least: 4.7
-Tested up to: 5.8
-Stable tag: 1.1.3
-Requires PHP: 7.4
+Tested up to: 5.9
+Stable tag: 1.1.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
@@ -24,6 +22,9 @@ Intended for use on stand-alone or shared hosting platforms.
 * User constants
 
 ### Changelog ###
+
+#### 1.1.4 ####
+* Enhancement: improved development tooling for WordPress 5.9
 
 #### 1.1.3 ####
 * Enhancement: better placement of php.ini
