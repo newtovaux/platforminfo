@@ -1,0 +1,68 @@
+name: Test Plugin Install
+
+on: [push, pull_request]
+
+jobs:
+  test-install:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['7.4', '8.0', '8.1']
+    env:
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: redis, gd, mbstring, mysqli, zip
+      - name: Install WP-CLI
+        run: |
+          curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+          chmod +x wp-cli.phar
+          mv wp-cli.phar /usr/local/bin/wp
+      - name: Start MySQL
+        run: sudo systemctl start mysql.service
+      - name: Create MySQL database
+        run: >
+          mysql --user=root --password=root -e "
+          CREATE DATABASE \`$MYSQL_DATABASE\` ;
+          CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD' ;
+          GRANT ALL ON \`$MYSQL_DATABASE\`.* TO '$MYSQL_USER'@'%' ;
+          FLUSH PRIVILEGES ;
+          "
+      - name: Configure WordPress
+        run: >
+          wp config create
+          --allow-root
+          --dbname=$MYSQL_DATABASE
+          --dbuser=$MYSQL_USER
+          --dbpass=$MYSQL_PASSWORD
+          --force
+        working-directory: wp_root
+      - name: Install WordPress
+        run: >
+          wp core install
+          --allow-root
+          --url=localhost
+          --title=WP
+          --admin_user=admin
+          --admin_email=example@example.com
+          --admin_password=password
+          --skip-email
+        working-directory: wp_root
+      - name: Build Plugin
+        run: |
+          composer install
+          compposer run build
+        working-directory: wp_root
+      - name: Install Plugin
+        run: >
+          wp plugin install platforminfo.zip
+          --force
+          --activate
+        working-directory: wp_root
