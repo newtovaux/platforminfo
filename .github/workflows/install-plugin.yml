@@ -37,6 +37,9 @@ jobs:
           "
       - name: Create Directory
         run: mkdir wp_root
+      - name: Download WordPress
+        run: wp core download
+        working-directory: wp_root
       - name: Configure WordPress
         run: >
           wp config create
