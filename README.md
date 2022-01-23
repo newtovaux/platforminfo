@@ -1,7 +1,7 @@
 # PlatformInfo #
 A simple platform information plugin for WordPress. Shows you environment variables, PHP settings and more.
 
-![](https://github.com/newtovaux/platforminfo/actions/workflows/test.yml/badge.svg)
+![](https://github.com/newtovaux/platforminfo/actions/workflows/coding-standards.yml/badge.svg)
 ![](https://github.com/newtovaux/platforminfo/actions/workflows/static-analysis.yml/badge.svg)
 ![](https://github.com/newtovaux/platforminfo/actions/workflows/wordpress-plugin-deploy.yml/badge.svg)
 

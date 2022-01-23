@@ -16,6 +16,7 @@ services:
       - 33060
   wordpress:
     image: wordpress:latest
+    # image: wordpress:beta-5.9-RC3-php8.1-apache
     ports:
       - 80:80
     restart: always
