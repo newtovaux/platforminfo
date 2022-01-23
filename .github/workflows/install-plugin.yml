@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         php-versions: ['7.4', '8.0']
+        wordpress-versions: ['5.8', '5.9']
     env:
       MYSQL_DATABASE: wp
       MYSQL_USER: wp
@@ -38,7 +39,10 @@ jobs:
       - name: Create Directory
         run: mkdir wp_root
       - name: Download WordPress
-        run: wp core download
+        run: >
+          wp core download
+          --version=${{ matrix.wordpress-versions }}
+          --force
         working-directory: wp_root
       - name: Configure WordPress
         run: >
