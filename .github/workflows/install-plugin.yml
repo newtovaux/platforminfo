@@ -14,7 +14,13 @@ jobs:
         experimental: [false]
         include:
           - wordpress-versions: '5.9'
-            php-versions: ['7.4', '8.0']
+            php-versions: ['7.4']
+            experimental: true
+          - wordpress-versions: '5.9'
+            php-versions: ['8.0']
+            experimental: true
+          - wordpress-versions: '5.9'
+            php-versions: ['8.1']
             experimental: true
     env:
       MYSQL_DATABASE: wp
