@@ -64,10 +64,9 @@ jobs:
         run: |
           composer install
           compposer run build
-        working-directory: wp_root
       - name: Install Plugin
         run: >
           wp plugin install platforminfo.zip
+          --path=wp_root
           --force
           --activate
-        working-directory: wp_root
