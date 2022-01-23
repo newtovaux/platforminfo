@@ -12,7 +12,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          extensions: redis
           tools: pecl, composer
       - name: Static Analysis for PHP
         run: |
