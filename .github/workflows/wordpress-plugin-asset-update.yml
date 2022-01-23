@@ -1,5 +1,9 @@
 name: Plugin asset/readme update
-on: [push]
+on:
+  push:
+    tags:
+      - "*"
+      - "!*-*"
 jobs:
   stable:
     name: Push to stable
