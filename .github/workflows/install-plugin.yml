@@ -63,7 +63,7 @@ jobs:
       - name: Build Plugin
         run: |
           composer install
-          compposer run build
+          composer run build
       - name: Install Plugin
         run: >
           wp plugin install platforminfo.zip
