@@ -35,6 +35,8 @@ jobs:
           GRANT ALL ON \`$MYSQL_DATABASE\`.* TO '$MYSQL_USER'@'%' ;
           FLUSH PRIVILEGES ;
           "
+      - name: Create Directory
+        run: mkdir wp_root
       - name: Configure WordPress
         run: >
           wp config create
