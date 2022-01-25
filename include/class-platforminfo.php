@@ -320,7 +320,7 @@ final class Platforminfo {
 								printf(
 									'<tr><td>%s</td><td>%s</td></tr>',
 									esc_html( $k ),
-									array_values( $v )[0]['schedule']
+									esc_html( array_values( $v )[0]['schedule'] )
 								);
 							}
 						}
