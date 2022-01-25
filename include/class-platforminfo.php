@@ -301,6 +301,30 @@ final class Platforminfo {
 				?>
 				</tbody>
 			</table>
+			<?php if ( true === function_exists('_get_cron_array') ) { ?>
+			<h2><a id="cron">PHP <?php esc_html_e( 'WordPress Cron', 'platforminfo' ); ?></a></h2>
+			<p><?php esc_html_e( 'List of all scheduled WordPress cron jobs', 'platforminfo' ); ?>:</p>
+			<table class="wp-list-table widefat fixed striped table-view-list">
+				<thead>
+					<tr>
+						<th class="manage-column" width=”50%”>Event name</th>
+						<th class="manage-column" width=”50%”>Schedule</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						foreach( _get_cron_array() as $key => $value ) {
+							foreach ( $value as $k => $v)
+							printf(
+								'<tr><td>%s</td><td>%s</td></tr>',
+								esc_html__( $k ),
+								esc_html__( array_values( $v )[0]['schedule'] )
+							);
+						}
+					?>
+				</tbody>
+			</table>
+			<?php } ?>
 			<h2><a id="ext">PHP <?php esc_html_e( 'Extensions', 'platforminfo' ); ?></a></h2>
 			<p><?php esc_html_e( 'List of all PHP modules compiled and loaded', 'platforminfo' ); ?>:</p>
 			<div style="border: 1px solid #c3c4c7; background-color: #ffffff; padding: 8px 10px">
