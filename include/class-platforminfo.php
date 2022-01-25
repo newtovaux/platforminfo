@@ -169,7 +169,7 @@ final class Platforminfo {
 				?>
 			</h1>
 			<p>
-				<a href="#site"><?php esc_html_e( 'Site', 'platforminfo' ); ?></a> | <a href="#env"><?php esc_html_e( 'Environment', 'platforminfo' ); ?></a> | <a href="#php">PHP</a> | <a href="#ext"><?php esc_html_e( 'Extensions', 'platforminfo' ); ?></a> | <a href="#const"><?php esc_html_e( 'Constants', 'platforminfo' ); ?></a> | <a href="#opcache">OPcache</a>
+				<a href="#site"><?php esc_html_e( 'Site', 'platforminfo' ); ?></a> | <a href="#env"><?php esc_html_e( 'Environment', 'platforminfo' ); ?></a> | <a href="#php">PHP</a> | <a href="#cron">WPCron</a> | <a href="#ext"><?php esc_html_e( 'Extensions', 'platforminfo' ); ?></a> | <a href="#const"><?php esc_html_e( 'Constants', 'platforminfo' ); ?></a> | <a href="#opcache">OPcache</a>
 			</p>
 			<h2><a id="site"><?php esc_html_e( 'Site', 'platforminfo' ); ?></a></h2>
 			<p><?php esc_html_e( 'Key details of your site\'s domain, and where it is located on the server.', 'platforminfo' ); ?></p>
@@ -302,7 +302,7 @@ final class Platforminfo {
 				</tbody>
 			</table>
 			<?php if ( true === function_exists( '_get_cron_array' ) ) { ?>
-			<h2><a id="cron">PHP <?php esc_html_e( 'WordPress Cron', 'platforminfo' ); ?></a></h2>
+			<h2><a id="cron"><?php esc_html_e( 'WordPress Cron', 'platforminfo' ); ?></a></h2>
 			<p><?php esc_html_e( 'List of all scheduled WordPress cron jobs', 'platforminfo' ); ?>:</p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
