@@ -314,13 +314,14 @@ final class Platforminfo {
 				<tbody>
 					<?php
 					if ( false !== _get_cron_array() ) {
-						foreach( _get_cron_array() as $key => $value ) {
-							foreach( $value as $k => $v )
-							printf(
-								'<tr><td>%s</td><td>%s</td></tr>',
-								__( $k ),
-								__( array_values( $v )[0]['schedule'] )
-							);
+						foreach ( _get_cron_array() as $key => $value ) {
+							foreach ( $value as $k => $v ) {
+								printf(
+									'<tr><td>%s</td><td>%s</td></tr>',
+									$k,
+									array_values( $v )[0]['schedule']
+								);
+							}
 						}
 					}
 					?>
