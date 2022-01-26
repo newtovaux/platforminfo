@@ -31,7 +31,7 @@
         ],
         "build": [
             "rm -f platforminfo.zip",
-            "cd .. && zip -9 'platforminfo/platforminfo.zip' -r platforminfo/ -x 'platforminfo/*.git*' -x 'platforminfo/*.zip' -x 'platforminfo/build.sh' x 'platforminfo/vendor/*' -x 'platforminfo/composer.*' -x 'platforminfo/.wordpress-org/*' -x 'platforminfo/README.md' -x 'platforminfo/docker-compose.yaml' -x 'platforminfo/psalm.xml' -x 'platforminfo/DEVELOPMENT.md' -x 'platforminfo/.vscode/*'"
+            "cd .. && zip -9 'platforminfo/platforminfo.zip' -r platforminfo/ --exclude @platforminfo/zip-exclude.lst"
         ],
         "deploy": [
             "docker-compose run --rm cli wp plugin deactivate --all",

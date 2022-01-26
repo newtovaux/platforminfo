@@ -1,8 +1,8 @@
-# ---> VisualStudioCode
-.settings
-
 # Plugin in zip file for testing
 *.zip
 
 # PHP Dependencies
 /vendor/
+
+# Release files
+notes.txt

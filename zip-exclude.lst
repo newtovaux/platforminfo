@@ -1,0 +1,15 @@
+
+platforminfo/*.git*
+platforminfo/.wordpress-org/*
+platforminfo/.vscode/*
+platforminfo/vendor/*
+platforminfo/composer.*
+platforminfo/docker-compose.yaml
+platforminfo/DEVELOPMENT.md
+platforminfo/README.md
+platforminfo/CHANGELOG.md
+platforminfo/psalm.xml
+platforminfo/release.sh
+platforminfo/notes.txt
+platforminfo/zip-exclude.lst
+platforminfo/*.zip
