@@ -1,5 +1,8 @@
 name: Coding Standards
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - '**.php'
 jobs:
   coding-standards:
     runs-on: ubuntu-latest
