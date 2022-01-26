@@ -12,6 +12,11 @@ jobs:
         php-versions: ['7.4', '8.0', '8.1']
         wordpress-versions: ['5.8', '5.9']
         experimental: [false]
+        # Uncomment for testing other experimental version combinations
+        # include:
+        #   - php-versions: '8.2'
+        #     wordpress-versions: '5.9'
+        #     experimental: true
     env:
       MYSQL_DATABASE: wp
       MYSQL_USER: wp
