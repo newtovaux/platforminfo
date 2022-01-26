@@ -175,7 +175,7 @@ final class Platforminfo {
 			<p><?php esc_html_e( 'Key details of your site\'s domain, and where it is located on the server.', 'platforminfo' ); ?></p>
 			<table class="platforminfo">
 				<tr class="platforminfo_striped">
-					<td><?php esc_html_e( 'URL' ); ?></td>
+					<td><?php esc_html_e( 'URL', 'platforminfo' ); ?></td>
 					<td><?php echo esc_html( site_url() ); ?> 
 						<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( site_url() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
 					</td>
