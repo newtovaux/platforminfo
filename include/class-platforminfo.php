@@ -357,7 +357,7 @@ final class Platforminfo {
 						printf(
 							'<tr><td>%s</td><td>%s</td></tr>',
 							esc_html( $key ),
-							is_string( $value ) ? esc_html( $value ) : esc_html__( 'None' )
+							is_string( $value ) ? esc_html( $value ) : esc_html__( 'None', 'platforminfo' )
 						);
 					}
 					?>
@@ -389,7 +389,7 @@ final class Platforminfo {
 
 					$status = opcache_get_status();
 					unset( $status['scripts'] );
-					echo '<h3>OPcache ' . esc_html__( 'Status' ) . '</h3>';
+					echo '<h3>OPcache ' . esc_html__( 'Status', 'platforminfo' ) . '</h3>';
 					self::recursive_ulli( $status );
 				}
 				?>
