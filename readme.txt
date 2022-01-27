@@ -15,11 +15,13 @@ A simple platform information plugin for WordPress. Shows you environment variab
 Intended for use on stand-alone or shared hosting platforms.
 
 ### Features ###
-* PHP version
-* PHP loaded modules
+* Key website details
+* PHP version and loaded modules
+* Common important php.ini settings
 * PHP OPcache settings
 * Environment variables
 * User constants
+* WordPress Cron
 
 ### Changelog ###
 
