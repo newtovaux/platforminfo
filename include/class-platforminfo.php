@@ -367,13 +367,10 @@ final class Platforminfo {
 			<h2><a id="opcache"><?php esc_html_e( 'PHP OPcache', 'platforminfo' ); ?></a></h2>
 			<p><?php esc_html_e( 'OPcache improves PHP performance by storing precompiled script bytecode in shared memory, thereby removing the need for PHP to load and parse scripts on each request.', 'platforminfo' ); ?></p>
 			<?php
-			if ( ! extension_loaded( 'Zend OPcache' ) ) {
-				?>
-			<div class="notice notice-error"><p><?php esc_html_e( 'You do not have the Zend OPcache extension loaded.', 'platforminfo' ); ?></p></div>
-				<?php
-				if ( function_exists( 'dl' ) === false ) {
+			if ( false === extension_loaded( 'Zend OPcache' ) ) {
+				if ( false === function_exists( 'dl' ) ) {
 					?>
-				<div class="notice notice-error"><p><?php esc_html_e( 'Unable to load Zend OPcache extension.', 'platforminfo' ); ?></p></div>
+				<div class="notice notice-error"><p><?php esc_html_e( 'You do not have the Zend OPcache extension loaded. Unable to load Zend OPcache extension.', 'platforminfo' ); ?></p></div>
 			<?php } ?>
 			<p><?php esc_html_e( 'OPcache not available.', 'platforminfo' ); ?></p>
 			<?php } else { ?>
