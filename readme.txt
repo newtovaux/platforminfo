@@ -2,7 +2,7 @@
 Contributors: newtovaux
 Tags: platforminfo, platform, info, shared-hosting, phpinfo
 Tested up to: 5.9
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
@@ -22,6 +22,11 @@ Intended for use on stand-alone or shared hosting platforms.
 * User constants
 
 ### Changelog ###
+
+#### 1.1.6 ####
+* Enhancement: better testing, with more WP and PHP versions
+* Enhancement: improved OPcache detection
+* Fix: corrected translation anomalies
 
 #### 1.1.5 ####
 * Enhancement: added WPCron list
