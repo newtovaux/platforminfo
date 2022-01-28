@@ -82,3 +82,12 @@ jobs:
           --path=wp_root
           --force
           --activate
+      - name: Run wp cron test
+        run: >
+          wp cron test
+        working-directory: wp_root
+      - name: Run due cron events
+        run: >
+          wp cron event run
+          --due-now
+        working-directory: wp_root
