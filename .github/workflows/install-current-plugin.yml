@@ -1,14 +1,8 @@
-name: Test Plugin Install
+name: Test Current Directory Plugin Install
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   schedule:
-    - cron: '0 * * * *'
+    - cron: '5 * * * *'
 
 jobs:
   test-install:
@@ -80,13 +74,9 @@ jobs:
           --admin_password=password
           --skip-email
         working-directory: wp_root
-      - name: Build Plugin
-        run: |
-          composer install
-          composer run build
-      - name: Install Plugin
+      - name: Install Plugin from WordPress Directory
         run: >
-          wp plugin install platforminfo.zip
+          wp plugin install platforminfo
           --path=wp_root
           --force
           --activate
