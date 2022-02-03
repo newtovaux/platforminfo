@@ -40,7 +40,13 @@ jobs:
           MARIADB_PASSWORD: $DB_PASSWORD
           MARIADB_RANDOM_ROOT_PASSWORD: yes
         ports:
-          - 3306:3306
+          - 3306
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd mysqladmin ping
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout
         uses: actions/checkout@v2
