@@ -26,7 +26,7 @@ jobs:
         #     wordpress-versions: '5.9'
         #     experimental: true
     env:
-      DB_HOST: database
+      DB_HOST: 127.0.0.1
       DB_DATABASE: wp
       DB_USER: wp
       DB_PASSWORD: wp
