@@ -91,3 +91,6 @@ jobs:
           wp cron event run
           --due-now
         working-directory: wp_root
+      - name: Install Apache
+        run: |
+          apt-get -y install apache2 
