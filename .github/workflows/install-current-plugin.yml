@@ -58,6 +58,7 @@ jobs:
           id
           sudo mkdir -p $WPROOT
           sudo chmod a+wrx $WPROOT
+          ls -al $WPROOT
       - name: Download WordPress
         run: >
           wp core download
@@ -97,4 +98,8 @@ jobs:
           --due-now
       - name: Install Apache
         run: |
-          sudo apt-get -y install apache2 
+          sudo apt-get -y install apache2
+      - name: Test WP Response
+        run: |
+          wget --delete-after http://localhost/wordpress/wp-cron.php
+          wget --delete-after http://localhost/wordpress/index.php
