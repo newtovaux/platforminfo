@@ -99,7 +99,8 @@ jobs:
       - name: Install Apache
         run: |
           sudo apt-get -y install apache2
-          sudo systemctl start apache2.service
+          sudo apt-get -y install libapache2-mod-php
+          sudo systemctl restart apache2.service
       - name: Test WP Response
         run: |
           curl http://localhost/wordpress/wp-cron.php
