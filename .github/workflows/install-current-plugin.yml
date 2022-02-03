@@ -112,4 +112,6 @@ jobs:
         run: wget http://127.0.0.1:8081/wp-cron.php
       - name: Test WP Response (4)
         run: wget http://127.0.0.1:8081/index.php 2>&1
+      - name: Test WP Response (4)
+        run:wget -qO- http://127.0.0.1:8081/index.php
       
