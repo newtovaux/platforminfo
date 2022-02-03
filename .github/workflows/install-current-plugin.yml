@@ -93,4 +93,4 @@ jobs:
         working-directory: wp_root
       - name: Install Apache
         run: |
-          apt-get -y install apache2 
+          sudo apt-get -y install apache2 
