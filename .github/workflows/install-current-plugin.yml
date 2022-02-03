@@ -106,7 +106,7 @@ jobs:
           php -S 127.0.0.1:8081 -t /var/www/html/ &
       - name: Test WP Response
         run: |
-          curl http://localhost/wordpress/wp-cron.php
-          curl http://localhost/wordpress/index.php
-          wget --delete-after http://localhost/wordpress/wp-cron.php
-          wget --delete-after http://localhost/wordpress/index.php
+          curl http://127.0.0.1:8081/wordpress/wp-cron.php
+          curl http://127.0.0.1:8081/wordpress/index.php
+          wget --delete-after http://127.0.0.1:8081/wordpress/wp-cron.php
+          wget --delete-after http://127.0.0.1:8081/wordpress/index.php
