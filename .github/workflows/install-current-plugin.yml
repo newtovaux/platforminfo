@@ -35,9 +35,9 @@ jobs:
       database:
         image: mariadb:10.7
         env:
-          MARIADB_DATABASE: $DB_DATABASE
-          MARIADB_USER: $DB_USER
-          MARIADB_PASSWORD: $DB_PASSWORD
+          MARIADB_DATABASE: wp
+          MARIADB_USER: wp
+          MARIADB_PASSWORD: wp
           MARIADB_RANDOM_ROOT_PASSWORD: yes
         ports:
           - 13306:3306
@@ -78,9 +78,9 @@ jobs:
           --path=$WPROOT
           --allow-root
           --dbhost=127.0.0.1:13306
-          --dbname=$DB_DATABASE
-          --dbuser=$DB_USER
-          --dbpass=$DB_PASSWORD
+          --dbname=wp
+          --dbuser=wp
+          --dbpass=wp
           --force
       - name: Install WordPress
         run: >
