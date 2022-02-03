@@ -29,6 +29,7 @@ jobs:
       MYSQL_DATABASE: wp
       MYSQL_USER: wp
       MYSQL_PASSWORD: wp
+      WPROOT: /var/www/html/wordpress
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -53,13 +54,16 @@ jobs:
           FLUSH PRIVILEGES ;
           "
       - name: Create Directory
-        run: mkdir wp_root
+        run: |
+          id
+          sudo mkdir -p $WPROOT
+          sudo chmod a+wrx $WPROOT
       - name: Download WordPress
         run: >
           wp core download
           --version=${{ matrix.wordpress-versions }}
           --force
-        working-directory: wp_root
+        working-directory: $WPROOT
       - name: Configure WordPress
         run: >
           wp config create
@@ -68,7 +72,7 @@ jobs:
           --dbuser=$MYSQL_USER
           --dbpass=$MYSQL_PASSWORD
           --force
-        working-directory: wp_root
+        working-directory: $WPROOT
       - name: Install WordPress
         run: >
           wp core install
@@ -79,18 +83,18 @@ jobs:
           --admin_email=example@example.com
           --admin_password=password
           --skip-email
-        working-directory: wp_root
+        working-directory: $WPROOT
       - name: Install Plugin from WordPress Directory
         run: >
           wp plugin install platforminfo
-          --path=wp_root
+          --path=$WPROOT
           --force
           --activate
       - name: Run due cron events
         run: >
           wp cron event run
           --due-now
-        working-directory: wp_root
+        working-directory: $WPROOT
       - name: Install Apache
         run: |
           sudo apt-get -y install apache2 
