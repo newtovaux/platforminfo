@@ -105,7 +105,9 @@ jobs:
           php -v 
           php -S 127.0.0.1:8081 -t /var/www/html/wordpress/ &
       - name: Test WP Response (Cron)
-        run: wget -qO- http://127.0.0.1:8081/wp-cron.php
+        run: wget -SO- http://127.0.0.1:8081/wp-cron.php
       - name: Test WP Response (Main Page)
-        run: wget -qO- http://127.0.0.1:8081/index.php
+        run: wget -SO- http://127.0.0.1:8081/
+      - name: Test WP Response (WP Admin)
+        run: wget -SO- http://127.0.0.1:8081/wp-admin/
       
