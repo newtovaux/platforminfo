@@ -26,10 +26,6 @@ jobs:
         #     wordpress-versions: '5.9'
         #     experimental: true
     env:
-      DB_HOST: 127.0.0.1
-      DB_DATABASE: wp
-      DB_USER: wp
-      DB_PASSWORD: wp
       WPROOT: /var/www/html/wordpress
     services:
       database:
@@ -104,11 +100,10 @@ jobs:
           wp cron event run
           --path=$WPROOT
           --due-now
-      - name: Install Apache
+      - name: Run PHP
         run: |
-          sudo apt-get -y install apache2
-          sudo apt-get -y install libapache2-mod-php
-          sudo systemctl restart apache2.service
+          php -v 
+          php -S 127.0.0.1:8081 -t /var/www/html/ &
       - name: Test WP Response
         run: |
           curl http://localhost/wordpress/wp-cron.php
