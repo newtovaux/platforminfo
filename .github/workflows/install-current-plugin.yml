@@ -102,5 +102,7 @@ jobs:
           sudo systemctl start apache2.service
       - name: Test WP Response
         run: |
+          curl http://localhost/wordpress/wp-cron.php
+          curl http://localhost/wordpress/index.php
           wget --delete-after http://localhost/wordpress/wp-cron.php
           wget --delete-after http://localhost/wordpress/index.php
