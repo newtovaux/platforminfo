@@ -61,21 +61,22 @@ jobs:
       - name: Download WordPress
         run: >
           wp core download
+          --path=$WPROOT
           --version=${{ matrix.wordpress-versions }}
           --force
-        working-directory: $WPROOT
       - name: Configure WordPress
         run: >
           wp config create
+          --path=$WPROOT
           --allow-root
           --dbname=$MYSQL_DATABASE
           --dbuser=$MYSQL_USER
           --dbpass=$MYSQL_PASSWORD
           --force
-        working-directory: $WPROOT
       - name: Install WordPress
         run: >
           wp core install
+          --path=$WPROOT
           --allow-root
           --url=localhost
           --title=WP
@@ -83,7 +84,6 @@ jobs:
           --admin_email=example@example.com
           --admin_password=password
           --skip-email
-        working-directory: $WPROOT
       - name: Install Plugin from WordPress Directory
         run: >
           wp plugin install platforminfo
@@ -93,8 +93,8 @@ jobs:
       - name: Run due cron events
         run: >
           wp cron event run
+          --path=$WPROOT
           --due-now
-        working-directory: $WPROOT
       - name: Install Apache
         run: |
           sudo apt-get -y install apache2 
