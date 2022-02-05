@@ -84,6 +84,13 @@
                 "singleInstance": true,
                 "command": "composer run reset",
             },
+            {
+                "cwd": "${workspaceFolder}",     // Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "Update",
+                "color": "white",
+                "singleInstance": true,
+                "command": "composer run wpupdate",
+            },
         ]
     }
   }
