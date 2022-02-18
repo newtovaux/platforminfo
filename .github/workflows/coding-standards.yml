@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '**.php'
+      - 'composer.*'
 jobs:
   coding-standards:
     runs-on: ubuntu-latest
