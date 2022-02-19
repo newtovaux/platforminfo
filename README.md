@@ -30,8 +30,8 @@ Available in the [WordPress Plugin Directory](https://wordpress.org/plugins/plat
 If you don’t know how to install a plugin for WordPress, [here’s how](https://wordpress.org/support/article/managing-plugins/#installing-plugins).
 
 ### Requirements ###
-* Tested with PHP 7.4 or greater (although may work with earlier versions)
-* Tested with WordPress 5.8 or greater (although may work with earlier versions)
+* Tested with PHP 7.4, 8.0 and 8.1 (although may work with earlier versions)
+* Tested with WordPress 5.8 and 5.9 (although may work with earlier versions)
 
 ## Contribute ##
 * Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
