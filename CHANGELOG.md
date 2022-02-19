@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.7 ##
+* Enhancement: improved WordPress cron
+* Fix: Development tooling (CI)
+
 ## 1.1.6 ##
 * Enhancement: better testing, with more WP and PHP versions
 * Enhancement: improved OPcache detection

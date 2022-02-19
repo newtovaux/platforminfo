@@ -307,8 +307,8 @@ final class Platforminfo {
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
 					<tr>
-						<th class="manage-column" width=”50%”>Event name</th>
-						<th class="manage-column" width=”50%”>Schedule</th>
+						<th class="manage-column" width=”50%”><?php esc_html_e( 'Event', 'platforminfo' ); ?></th>
+						<th class="manage-column" width=”50%”><?php esc_html_e( 'Schedule', 'platforminfo' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -320,7 +320,7 @@ final class Platforminfo {
 								printf(
 									'<tr><td>%s</td><td>%s</td></tr>',
 									esc_html( $k ),
-									esc_html( array_values( $v )[0]['schedule'] )
+									esc_html( self::print_schedule( array_values( $v )[0]['schedule'] ) )
 								);
 							}
 						}
@@ -396,6 +396,29 @@ final class Platforminfo {
 			<hr />
 		</div>
 		<?php
+	}
+
+	/**
+	 * Print versions of WordPress schedules
+	 *
+	 * @param mixed $entry hourly|twicedaily|daily|weekly.
+	 * @since 1.1.7
+	 *
+	 * @return string
+	 */
+	public static function print_schedule( $entry ): string {
+		switch ( $entry ) {
+			case 'hourly':
+				return __( 'Hourly', 'platforminfo' );
+			case 'twicedaily':
+				return __( 'Twice daily', 'platforminfo' );
+			case 'daily':
+				return __( 'Daily', 'platforminfo' );
+			case 'weekly':
+				return __( 'Weekly', 'platforminfo' );
+			default:
+				return esc_html( (string) $entry );
+		}
 	}
 
 	/**
