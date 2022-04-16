@@ -3,7 +3,7 @@
  * Plugin Name:       PlatformInfo
  * Plugin URI:        https://en-gb.wordpress.org/plugins/platforminfo/
  * Description:       PlatformInfo gives useful information for sites on shared hosting.
- * Version:           1.1.7
+ * Version:           1.1.8
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Author:            newtovaux
