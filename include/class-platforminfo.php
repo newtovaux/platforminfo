@@ -303,6 +303,23 @@ final class Platforminfo {
 			</table>
 			<?php if ( true === function_exists( '_get_cron_array' ) ) { ?>
 			<h2><a id="cron"><?php esc_html_e( 'WordPress Cron', 'platforminfo' ); ?></a></h2>
+			<p>WP-Cron is 
+				<?php
+				if ( false === _get_cron_array() ) {
+					esc_html_e( 'not running', 'platforminfo' );
+				} else {
+					esc_html_e( 'running', 'platforminfo' );
+				}
+				?>
+				and 
+				<?php
+				if ( true === defined( 'DISABLE_WP_CRON' ) && true === DISABLE_WP_CRON ) {
+					esc_html_e( 'disabled', 'platforminfo' );
+				} else {
+					esc_html_e( 'enabled', 'platforminfo' );
+				}
+				?>
+.			</p>
 			<p><?php esc_html_e( 'List of all scheduled WordPress cron jobs', 'platforminfo' ); ?>:</p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
