@@ -205,8 +205,8 @@ final class Platforminfo {
 					foreach ( $sort as $e => $v ) {
 						printf(
 							'<tr><td>%s</td><td>%s</td></tr>',
-							esc_html( $e ),
-							esc_html( $v )
+							esc_html( (string) $e ),
+							esc_html( (string) $v )
 						);
 					}
 					?>
@@ -435,12 +435,12 @@ final class Platforminfo {
 			foreach ( $entry as $key => $value ) {
 				if ( is_array( $value ) ) {
 					echo '<li>';
-					printf( '<b>%s</b>: ', esc_html( $key ) );
+					printf( '<b>%s</b>: ', esc_html( (string) $key ) );
 					self::recursive_ulli( $value );
 					echo '</li>';
 				} else {
 					echo '<li>';
-					printf( '%s = ', esc_html( $key ) );
+					printf( '%s = ', esc_html( (string) $key ) );
 					if ( is_bool( $value ) ) {
 						if ( true === $value ) {
 							echo esc_html__( 'true', 'platforminfo' );
@@ -448,7 +448,7 @@ final class Platforminfo {
 							echo esc_html__( 'false', 'platforminfo' );
 						}
 					} else {
-						echo esc_html( $value );
+						echo esc_html( (string) $value );
 					}
 					echo '</li>';
 				}
@@ -456,7 +456,7 @@ final class Platforminfo {
 			echo '</ul>';
 		} else {
 			echo '<li>';
-			echo esc_html( $entry );
+			echo esc_html( (string) $entry );
 			echo '</li>';
 		}
 	}
