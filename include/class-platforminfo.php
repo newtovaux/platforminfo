@@ -313,7 +313,7 @@ final class Platforminfo {
 				?>
 				and 
 				<?php
-				if ( ( true === defined( 'DISABLE_WP_CRON' ) ) && "true" === DISABLE_WP_CRON ) {
+				if ( ( true === defined( 'DISABLE_WP_CRON' ) ) && 'true' === DISABLE_WP_CRON ) {
 					esc_html_e( 'disabled', 'platforminfo' );
 				} else {
 					esc_html_e( 'enabled', 'platforminfo' );
