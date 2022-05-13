@@ -324,8 +324,9 @@ final class Platforminfo {
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
 					<tr>
-						<th class="manage-column" width=”50%”><?php esc_html_e( 'Event', 'platforminfo' ); ?></th>
-						<th class="manage-column" width=”50%”><?php esc_html_e( 'Schedule', 'platforminfo' ); ?></th>
+						<th class="manage-column" width="40%"><?php esc_html_e( 'Hook', 'platforminfo' ); ?></th>
+						<th class="manage-column" width="30%"><?php esc_html_e( 'Recurrence', 'platforminfo' ); ?></th>
+						<th class="manage-column" width="30%"><?php esc_html_e( 'Next scheduled run', 'platforminfo' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -335,9 +336,10 @@ final class Platforminfo {
 						foreach ( $crons as $key => $value ) {
 							foreach ( $value as $k => $v ) {
 								printf(
-									'<tr><td>%s</td><td>%s</td></tr>',
+									'<tr><td>%s</td><td>%s</td><td>%s</td></tr>',
 									esc_html( $k ),
-									esc_html( self::print_schedule( array_values( $v )[0]['schedule'] ) )
+									esc_html( self::print_schedule( array_values( $v )[0]['schedule'] ) ),
+									esc_html( false === wp_next_scheduled( $k ) ? 'N/A' : wp_date(  'Y-m-d H:i:s', wp_next_scheduled( $k ) ) ),
 								);
 							}
 						}
@@ -433,6 +435,8 @@ final class Platforminfo {
 				return __( 'Daily', 'platforminfo' );
 			case 'weekly':
 				return __( 'Weekly', 'platforminfo' );
+			case '':
+				return __( 'Non-repeating', 'platforminfo' );
 			default:
 				return esc_html( (string) $entry );
 		}
