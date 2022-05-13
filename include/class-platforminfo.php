@@ -339,7 +339,7 @@ final class Platforminfo {
 									'<tr><td>%s</td><td>%s</td><td>%s</td></tr>',
 									esc_html( $k ),
 									esc_html( self::print_schedule( array_values( $v )[0]['schedule'] ) ),
-									esc_html( false === wp_next_scheduled( $k ) ? 'N/A' : wp_date(  'Y-m-d H:i:s', wp_next_scheduled( $k ) ) ),
+									esc_html( false === wp_next_scheduled( $k ) ? 'N/A' : wp_date(  'Y-m-d H:i:s', wp_next_scheduled( $k ) ) )
 								);
 							}
 						}
