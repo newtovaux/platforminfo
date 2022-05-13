@@ -458,8 +458,12 @@ final class Platforminfo {
 		if ( false === $next_schedule ) {
 			return '';
 		}
-		$next_schedule = date( 'Y-m-d H:i:s', $next_schedule );
-		return $next_schedule;
+		$next_schedule = wp_date( 'Y-m-d H:i:s', $next_schedule );
+		if ( false === $next_schedule ) {
+			return '';
+		} else {
+			return $next_schedule;
+		}
 	}
 
 	/**
