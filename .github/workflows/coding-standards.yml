@@ -19,5 +19,5 @@ jobs:
           tools: composer
       - name: Code style checks for PHP
         run: |
-          composer install
+          composer update
           composer lint-all

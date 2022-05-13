@@ -15,6 +15,6 @@ jobs:
           tools: composer
       - name: Build the plugin into a zip file
         run: |
-          composer install
+          composer update
           composer run build
           ls -al *.zip
