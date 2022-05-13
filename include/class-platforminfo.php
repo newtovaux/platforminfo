@@ -339,7 +339,7 @@ final class Platforminfo {
 									'<tr><td>%s</td><td>%s</td><td>%s</td></tr>',
 									esc_html( $k ),
 									esc_html( self::print_schedule( array_values( $v )[0]['schedule'] ) ),
-									esc_html( false === wp_next_scheduled( $k ) ? 'N/A' : wp_date( 'Y-m-d H:i:s', wp_next_scheduled( $k ) ) )
+									esc_html( self::print_next_schedule( $k ) )
 								);
 							}
 						}
@@ -440,6 +440,26 @@ final class Platforminfo {
 			default:
 				return esc_html( (string) $entry );
 		}
+	}
+
+	/**
+	 * Print next schedule
+	 *
+	 * @param mixed $entry hourly|twicedaily|daily|weekly.
+	 * @since 1.1.11
+	 *
+	 * @return string
+	 */
+	public static function print_next_schedule( $entry ): string {
+		if ( ! is_string( $entry ) ) {
+			return '';
+		}
+		$next_schedule = wp_next_scheduled( $entry );
+		if ( false === $next_schedule ) {
+			return '';
+		}
+		$next_schedule = date( 'Y-m-d H:i:s', $next_schedule );
+		return $next_schedule;
 	}
 
 	/**
