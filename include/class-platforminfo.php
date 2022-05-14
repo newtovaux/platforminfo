@@ -303,7 +303,7 @@ final class Platforminfo {
 			</table>
 			<?php if ( true === function_exists( '_get_cron_array' ) ) { ?>
 			<h2><a id="cron"><?php esc_html_e( 'WordPress Cron', 'platforminfo' ); ?></a></h2>
-			<p>WP-Cron is 
+			<p>Event scheduler is 
 				<?php
 				if ( false === _get_cron_array() ) {
 					esc_html_e( 'not running', 'platforminfo' );
@@ -311,16 +311,17 @@ final class Platforminfo {
 					esc_html_e( 'running', 'platforminfo' );
 				}
 				?>
-				and 
+				and WP-Cron is
 				<?php
-				if ( ( true === defined( 'DISABLE_WP_CRON' ) ) && 'true' === DISABLE_WP_CRON ) {
+				// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+				if ( ( true === defined( 'DISABLE_WP_CRON' ) ) && ( true == DISABLE_WP_CRON ) ) {
 					esc_html_e( 'disabled', 'platforminfo' );
 				} else {
 					esc_html_e( 'enabled', 'platforminfo' );
 				}
 				?>
 .			</p>
-			<p><?php esc_html_e( 'List of all scheduled WordPress cron jobs', 'platforminfo' ); ?>:</p>
+			<p><?php esc_html_e( 'List of all scheduled events', 'platforminfo' ); ?>:</p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
 				<thead>
 					<tr>
@@ -376,7 +377,7 @@ final class Platforminfo {
 						printf(
 							'<tr><td>%s</td><td>%s</td></tr>',
 							esc_html( $key ),
-							is_string( $value ) ? esc_html( $value ) : esc_html__( 'None', 'platforminfo' )
+							esc_html( self::display_constant( $value ) )
 						);
 					}
 					?>
@@ -438,14 +439,36 @@ final class Platforminfo {
 			case '':
 				return __( 'Non-repeating', 'platforminfo' );
 			default:
-				return esc_html( (string) $entry );
+				return (string) $entry;
 		}
+	}
+
+	/**
+	 * Display constant value
+	 *
+	 * @param mixed $value contant value.
+	 * @since 1.1.11
+	 *
+	 * @return string
+	 */
+	public static function display_constant( $value ): string {
+		if ( is_bool( $value ) ) {
+			return $value ? __( 'true', 'platforminfo' ) : __( 'false', 'platforminfo' );
+		}
+		if ( is_null( $value ) ) {
+			return __( 'null', 'platforminfo' );
+		}
+		if ( is_array( $value ) ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions
+			return '<pre>' . print_r( $value, true ) . '</pre>';
+		}
+		return esc_html( (string) $value );
 	}
 
 	/**
 	 * Print next schedule
 	 *
-	 * @param mixed $entry hourly|twicedaily|daily|weekly.
+	 * @param mixed $entry cron entry.
 	 * @since 1.1.11
 	 *
 	 * @return string
