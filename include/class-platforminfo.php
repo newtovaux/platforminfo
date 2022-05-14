@@ -447,7 +447,7 @@ final class Platforminfo {
 	 * Display constant value
 	 *
 	 * @param mixed $value contant value.
-	 * @since 1.1.11
+	 * @since 1.1.12
 	 *
 	 * @return string
 	 */
