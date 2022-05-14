@@ -481,11 +481,15 @@ final class Platforminfo {
 		if ( false === $next_schedule ) {
 			return '';
 		}
-		$next_schedule = wp_date( 'Y-m-d H:i:s', $next_schedule );
-		if ( false === $next_schedule ) {
+		$next_schedule_ts = wp_date( 'Y-m-d H:i:s', $next_schedule );
+		if ( false === $next_schedule_ts ) {
 			return '';
 		} else {
-			return $next_schedule;
+			if ( $next_schedule < time() ) {
+				return $next_schedule_ts . __( ' Overdue!' );
+			} else {
+				return $next_schedule_ts;
+			}
 		}
 	}
 
