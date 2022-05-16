@@ -486,11 +486,42 @@ final class Platforminfo {
 			return '';
 		} else {
 			if ( $next_schedule < time() ) {
-				return $next_schedule_ts . __( ' Overdue!' );
+				return sprintf( 'Overdue by %s: %s (%s)', self::secondstohuman( time() - $next_schedule ), $next_schedule_ts, __( 'UTC' ) );
 			} else {
-				return $next_schedule_ts;
+				return sprintf( 'Due in %s: %s (%s)', self::secondstohuman( $next_schedule - time() ), $next_schedule_ts, __( 'UTC' ) );
 			}
 		}
+	}
+
+	/**
+	 * Convert seconds to human readable time
+	 *
+	 * @param int $seconds seconds difference.
+	 * @since 1.2.1
+	 *
+	 * @return string
+	 */
+	public static function secondstohuman( $seconds ): string {
+		$ret = '';
+		if ( $seconds >= 86400 ) {
+			$days     = floor( $seconds / 86400 );
+			$ret     .= sprintf( '%d day%s', $days, $days > 1 ? 's' : '' );
+			$seconds -= $days * 86400;
+		}
+		if ( $seconds >= 3600 ) {
+			$hours    = floor( $seconds / 3600 );
+			$ret     .= sprintf( ' %d hour%s', $hours, $hours > 1 ? 's' : '' );
+			$seconds -= $hours * 3600;
+		}
+		if ( $seconds >= 60 ) {
+			$minutes  = floor( $seconds / 60 );
+			$ret     .= sprintf( ' %d minute%s', $minutes, $minutes > 1 ? 's' : '' );
+			$seconds -= $minutes * 60;
+		}
+		if ( $seconds > 0 ) {
+			$ret .= sprintf( ' %d second%s', $seconds, $seconds > 1 ? 's' : '' );
+		}
+		return $ret;
 	}
 
 	/**
