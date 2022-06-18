@@ -51,16 +51,16 @@
             "docker-compose up -d"
         ],
         "new": [
-            "docker-compose run --rm cli wp core install --url=\"http://localhost\" --title=Test --admin_user=admin --admin_password=password --skip-email --admin_email=\"test@email.com\""
+            "docker-compose run -e HOME=/tmp --rm cli wp core install --url=\"http://localhost\" --title=Test --admin_user=admin --admin_password=password --skip-email --admin_email=\"test@email.com\""
         ],
         "wpupdate": [
-            "docker-compose run --rm cli wp core update",
-            "docker-compose run --rm cli wp core update-db",
-            "docker-compose run --rm cli wp plugin update --all",
-            "docker-compose run --rm cli wp theme update --all"
+            "docker-compose run -e HOME=/tmp --rm cli wp core update",
+            "docker-compose run -e HOME=/tmp --rm cli wp core update-db",
+            "docker-compose run -e HOME=/tmp --rm cli wp plugin update --all",
+            "docker-compose run -e HOME=/tmp --rm cli wp theme update --all"
         ],
         "reset": [
-            "docker-compose run --rm cli wp db reset --yes",
+            "docker-compose run -e HOME=/tmp --rm cli wp db reset --yes",
             "@new",
             "@wpupdate",
             "@deploy"
