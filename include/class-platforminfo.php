@@ -302,6 +302,50 @@ final class Platforminfo {
 				</tbody>
 			</table>
 			<?php if ( true === function_exists( '_get_cron_array' ) ) { ?>
+			<h2><a id="htaccess"><?php esc_html_e( '.htaccess', 'platforminfo' ); ?></a></h2>
+			<?php
+				$cwd = getcwd();
+
+				// optential .htaccess file locations
+				$locations = [
+					realpath($cwd . '/..'),
+					realpath($cwd . '/../..'),
+				];
+
+				$confirmed_locs = [];
+				// search for .htaccess files
+				foreach ($locations as $location)
+				{
+					if (file_exists($location . '/.htaccess'))
+					{
+						array_push($confirmed_locs, $location);
+					}
+				}
+			?>
+			<p>Searched locations: 
+				<?php
+					foreach ($locations as $location)
+					{
+						echo "$location, ";
+					}
+				?>
+			</p>
+			<?php
+				if (null !== $confirmed_locs)
+				{
+					foreach($confirmed_locs as $loc)
+					{
+						printf(
+							'<p><b>%s</b><br /><pre>%s</pre></p>',
+							$loc . '/.htaccess',
+							file_get_contents($loc . '/.htaccess')
+						);
+					}
+					
+				} else {
+					printf('<p>Unable to locate .htaccess file.');
+				}
+			?>
 			<h2><a id="cron"><?php esc_html_e( 'WordPress Cron', 'platforminfo' ); ?></a></h2>
 			<p>Event scheduler is 
 				<?php
