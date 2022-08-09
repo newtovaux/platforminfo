@@ -4,8 +4,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.2.2 ##
+* Enhancement: Locates and shows .htaccess
+
 ## 1.2.1 ##
 * Enhancement: Showing 'overdue by' and 'due in' for scheduled events
+
 ## 1.2.0 ##
 * Enhancement: Highlight overdue events
 
