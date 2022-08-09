@@ -303,49 +303,44 @@ final class Platforminfo {
 			</table>
 			<?php if ( true === function_exists( '_get_cron_array' ) ) { ?>
 			<h2><a id="htaccess"><?php esc_html_e( '.htaccess', 'platforminfo' ); ?></a></h2>
-			<?php
+				<?php
 				$cwd = getcwd();
 
-				// optential .htaccess file locations
-				$locations = [
-					realpath($cwd . '/..'),
-					realpath($cwd . '/../..'),
-				];
+				// Potential .htaccess file locations.
+				$locations = array(
+					realpath( $cwd . '/..' ),
+					realpath( $cwd . '/../..' ),
+				);
 
-				$confirmed_locs = [];
-				// search for .htaccess files
-				foreach ($locations as $location)
-				{
-					if (file_exists($location . '/.htaccess'))
-					{
-						array_push($confirmed_locs, $location);
+				$confirmed_locs = array();
+				// Search for .htaccess files.
+				foreach ( $locations as $location ) {
+					if ( file_exists( $location . '/.htaccess' ) ) {
+						array_push( $confirmed_locs, $location );
 					}
 				}
-			?>
-			<p>Searched locations: 
-				<?php
-					foreach ($locations as $location)
-					{
-						echo "$location, ";
-					}
 				?>
+			<p>Searched locations: 
+				<?php echo esc_html( implode( $locations, ', ' ) ); ?>
 			</p>
-			<?php
-				if (null !== $confirmed_locs)
-				{
-					foreach($confirmed_locs as $loc)
-					{
+			<button type="button" class="platforminfo_collapsible"><?php esc_html_e( '.htaccess details', 'platforminfo' ); ?></button>
+			<div class="platforminfo_content">
+				<?php
+				if ( null !== $confirmed_locs ) {
+					foreach ( $confirmed_locs as $loc ) {
+						// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+						$fs = file_get_contents( $loc . '/.htaccess' );
 						printf(
 							'<p><b>%s</b><br /><pre>%s</pre></p>',
-							$loc . '/.htaccess',
-							file_get_contents($loc . '/.htaccess')
+							esc_html( $loc . '/.htaccess' ),
+							esc_html( $fs )
 						);
 					}
-					
 				} else {
-					printf('<p>Unable to locate .htaccess file.');
+					printf( '<p>Unable to locate .htaccess file.' );
 				}
-			?>
+				?>
+			</div>
 			<h2><a id="cron"><?php esc_html_e( 'WordPress Cron', 'platforminfo' ); ?></a></h2>
 			<p>Event scheduler is 
 				<?php
