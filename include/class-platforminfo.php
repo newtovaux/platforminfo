@@ -321,12 +321,12 @@ final class Platforminfo {
 				}
 				?>
 			<p>Searched locations: 
-				<?php echo esc_html( implode( $locations, ', ' ) ); ?>
+				<?php echo esc_html( implode( ', ', $locations ) ); ?>
 			</p>
 			<button type="button" class="platforminfo_collapsible"><?php esc_html_e( '.htaccess details', 'platforminfo' ); ?></button>
 			<div class="platforminfo_content">
 				<?php
-				if ( null !== $confirmed_locs ) {
+				if ( 0 !== count( $confirmed_locs ) ) {
 					foreach ( $confirmed_locs as $loc ) {
 						// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 						$fs = file_get_contents( $loc . '/.htaccess' );
