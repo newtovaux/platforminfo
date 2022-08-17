@@ -17,5 +17,9 @@ jobs:
         run: |
           composer update
           composer run build
+      - name: Test the built file is a valid zip
+        run: |
+          ls -al platforminfo.zip
           zip -T platforminfo.zip
-          ls -al *.zip
+          unzip -l platforminfo.zip
+          
