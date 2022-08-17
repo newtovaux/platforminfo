@@ -17,4 +17,5 @@ jobs:
         run: |
           composer update
           composer run build
+          zip -T platforminfo.zip
           ls -al *.zip
