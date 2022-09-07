@@ -1,2 +1,2 @@
-- name: CycloneDX PHP Composer Generate SBOM
+name: CycloneDX PHP Composer Generate SBOM
   uses: CycloneDX/gh-php-composer-generate-sbom@v1.0.0
