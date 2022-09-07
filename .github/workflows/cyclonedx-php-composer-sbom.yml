@@ -1,5 +1,6 @@
 name: CycloneDX PHP Composer Generate SBOM
 on:
+  workflow_dispatch:
   push:
     paths:
       - '**.php'
