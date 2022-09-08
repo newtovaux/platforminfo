@@ -20,4 +20,5 @@ jobs:
           tools: composer
       - name: Generate BOM
         run: |
+          composer update
           composer make-bom composer.json
