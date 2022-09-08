@@ -13,4 +13,11 @@ jobs:
         php-versions: ['7.4', '8.0', '8.1']
     steps:
       - uses: CycloneDX/gh-php-composer-generate-sbom@v1.0.0
-
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer
+      - name: Generate BOM
+        run: |
+          composer make-bom composer.json
