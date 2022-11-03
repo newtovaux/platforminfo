@@ -1,7 +1,7 @@
 # PlatformInfo #
 Contributors: newtovaux
 Tags: platforminfo, platform, info, shared-hosting, phpinfo
-Tested up to: 6.0
+Tested up to: 6.1
 Stable tag: 1.2.2
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
