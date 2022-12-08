@@ -66,7 +66,7 @@ jobs:
         id: cache-wp
         uses: actions/cache@v3
         with:
-          path: wp_root
+          path: $WPROOT
           key: ${{ matrix.wordpress-versions }}-wp
       - name: Download WordPress
         if: steps.cache-wp.outputs.cache-hit != 'true'
