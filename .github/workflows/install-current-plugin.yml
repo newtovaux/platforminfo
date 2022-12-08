@@ -62,7 +62,14 @@ jobs:
           sudo mkdir -p $WPROOT
           sudo chmod a+wrx $WPROOT
           ls -al $WPROOT
+      - name: Cache WordPress Download
+        id: cache-wp
+        uses: actions/cache@v3
+        with:
+          path: wp_root
+          key: ${{ matrix.wordpress-versions }}-wp
       - name: Download WordPress
+        if: steps.cache-wp.outputs.cache-hit != 'true'
         run: >
           wp core download
           --path=$WPROOT
