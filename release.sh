@@ -2,6 +2,12 @@
 # PlatformInfo Release Script
 # Run: ./release.sh
 
+
+if ! which gh 2>&1 > /dev/null; then
+    echo "GitHub CLI not found - gh"
+    exit
+fi
+
 echo 'PlatformInfo Release'
 echo
 echo 'Enter the version number (e.g. 1.2.3): '
@@ -34,4 +40,6 @@ if [ "$confirm1" == "Y" ]; then
     else
         echo "Unable to find notes.txt"
     fi
+else
+    echo "Not confirmed."
 fi
