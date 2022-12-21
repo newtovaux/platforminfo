@@ -205,7 +205,7 @@ final class Platforminfo {
 					foreach ( $sort as $e => $v ) {
 						printf(
 							'<tr><td>%s</td><td>%s</td></tr>',
-							esc_html( (string) $e ),
+							esc_html( $e ),
 							esc_html( (string) $v )
 						);
 					}
@@ -344,7 +344,7 @@ final class Platforminfo {
 			<h2><a id="cron"><?php esc_html_e( 'WordPress Cron', 'platforminfo' ); ?></a></h2>
 			<p>Event scheduler is 
 				<?php
-				if ( false === _get_cron_array() ) {
+				if ( 0 === count(_get_cron_array() ) ) {
 					esc_html_e( 'not running', 'platforminfo' );
 				} else {
 					esc_html_e( 'running', 'platforminfo' );
@@ -372,7 +372,7 @@ final class Platforminfo {
 				<tbody>
 					<?php
 					$crons = _get_cron_array();
-					if ( false !== $crons ) {
+					if ( 0 !== count($crons) ) {
 						foreach ( $crons as $key => $value ) {
 							foreach ( $value as $k => $v ) {
 								printf(
