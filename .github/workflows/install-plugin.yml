@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['7.4', '8.0', '8.1']
+        php-versions: ['7.4', '8.0', '8.1', '8.2']
         wordpress-versions: ['5.8', '5.9', '6.0', '6.1', 'latest', 'nightly']
         experimental: [false]
         # Uncomment for testing other experimental version combinations
