@@ -23,5 +23,5 @@ jobs:
           tools: pecl, composer
       - name: Static Analysis for PHP
         run: |
-          composer install
+          composer update
           composer run analyse
