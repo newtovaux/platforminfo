@@ -8,6 +8,8 @@ jobs:
         php-versions: ['7.4', '8.0', '8.1', '8.2']
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: '1'
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -15,11 +17,11 @@ jobs:
           tools: composer
       - name: Build the plugin into a zip file
         run: |
-          composer update
+          composer install
           composer run build
       - name: Test the built file is a valid zip
         run: |
           ls -al platforminfo.zip
           zip -T platforminfo.zip
-          unzip -l platforminfo.zip
+          unzip -tl platforminfo.zip
           
