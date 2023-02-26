@@ -5,6 +5,7 @@ on:
       - '**.php'
       - 'psalm.xml'
       - 'composer.*'
+  workflow_dispatch:
 jobs:
   static-analysis:
     runs-on: ubuntu-latest

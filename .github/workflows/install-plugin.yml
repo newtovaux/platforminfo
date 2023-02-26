@@ -1,6 +1,7 @@
 name: Test Plugin Install
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main

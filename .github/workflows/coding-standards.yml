@@ -1,5 +1,6 @@
 name: Coding Standards
 on:
+  workflow_dispatch:
   push:
     paths:
       - '**.php'
