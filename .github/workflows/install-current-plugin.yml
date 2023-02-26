@@ -9,7 +9,7 @@ on:
       - main
   schedule:
     - cron: '5 */3 * * *'
-
+  workflow_dispatch:
 jobs:
   test-install:
     runs-on: ubuntu-latest
