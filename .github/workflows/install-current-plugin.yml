@@ -8,7 +8,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '5 */3 * * *'
+    - cron: '5 */12 * * *'
   workflow_dispatch:
 jobs:
   test-install:
