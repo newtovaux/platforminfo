@@ -1,8 +1,8 @@
 # PlatformInfo #
 Contributors: newtovaux
 Tags: platforminfo, platform, info, shared-hosting, phpinfo
-Tested up to: 6.1
-Stable tag: 1.2.3
+Tested up to: 6.3
+Stable tag: 1.2.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
@@ -24,6 +24,9 @@ Intended for use on stand-alone or shared hosting platforms.
 * WordPress Cron
 
 ### Changelog ###
+
+#### 1.2.4 ####
+* WordPress release prep
 
 #### 1.2.3 ####
 * Enhancement: Release for PHP 8.2

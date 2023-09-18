@@ -31,7 +31,7 @@ If you don’t know how to install a plugin for WordPress, [here’s how](https:
 
 ### Requirements ###
 * Tested with PHP 7.4 to 8.2 (although may work with earlier versions)
-* Tested with WordPress 5.8 to 6.1 (although may work with earlier versions)
+* Tested with WordPress 5.8 to 6.3 (although may work with earlier versions)
 
 ## Contribute ##
 * Active development of this plugin is handled [on GitHub](https://github.com/newtovaux/platforminfo).
