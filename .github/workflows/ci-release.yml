@@ -1,0 +1,14 @@
+# THIS IS WORK IN PROGRESS
+
+name: CI Release
+on: [workflow_dispatch]
+jobs:
+  ci-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '1'
+      - name: Check access to gh
+        run: |
+          gh release list
