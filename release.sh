@@ -10,12 +10,20 @@ fi
 
 echo 'PlatformInfo Release'
 echo
+echo 'Do not create the tag beforehand - this gh release create does that for you!'
+echo
 echo 'Enter the version number (e.g. 1.2.3): '
 read version
 echo "You entered '$version', is that correct? [Yn]"
 read confirm1
 if [ "$confirm1" == "Y" ]; then
     echo "Thanks for your confirmation."
+
+    if gh release list | grep --quiet "$version"; then
+        echo 'This tag has already been used. Exiting'
+        exit -1
+    fi
+
     echo "Generating notes file..."
     echo "Release $version" > notes.txt
     echo "See: https://github.com/newtovaux/platforminfo/blob/main/CHANGELOG.md" >> notes.txt
