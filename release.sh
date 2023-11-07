@@ -19,11 +19,17 @@ if [ "$confirm1" == "Y" ]; then
     echo "Generating notes file..."
     echo "Release $version" > notes.txt
     echo "See: https://github.com/newtovaux/platforminfo/blob/main/CHANGELOG.md" >> notes.txt
+    # Does the notes.txt file exist?
     if [ -f "notes.txt" ]; then
+        # Does the tag you're trying to release exist as "Stable tag:"" in the readme.txt?
         if grep --quiet "Stable tag: $version" readme.txt; then
+            # Does the tag you're trying to release have a version entry in the readme.txt?
             if grep --quiet "^#### $version ####" readme.txt; then
+                # Does the tag you're trying to release have a version entry in platforminfo.php?
                 if grep --quiet "* Version:           $version" platforminfo.php; then
+                    # Does the tag you're trying to release have a version entry in the Changelog?
                     if grep --quiet "## $version ##" CHANGELOG.md; then
+                        # Create release with specified version
                         gh release create "$version" -F notes.txt -t "$version"
                     else
                         echo "Unable to find ## $version ## in CHANGELOG.md"
