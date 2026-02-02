@@ -61,7 +61,10 @@ final class Platforminfo {
 	 *
 	 * @return void
 	 */
-	public static function platforminfo_load_admin_styles() {
+	public static function platforminfo_load_admin_styles( $hook ) {
+		if ( 'toplevel_page_platforminfo' !== $hook ) {
+			return;
+		}
 		wp_enqueue_style( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/css/platforminfo.css', array(), '1.0' );
 		wp_enqueue_script( 'platforminfo', plugins_url( 'platforminfo', '_FILE_' ) . '/admin/js/platforminfo.js', array(), '1.0', true );
 	}
@@ -218,12 +221,13 @@ final class Platforminfo {
 				PHP <?php esc_html_e( 'version', 'platforminfo' ); ?>: <?php echo esc_html( phpversion() ); ?> <a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( phpversion() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>, 
 				php.ini: 
 				<?php
-				if ( false === php_ini_loaded_file() ) {
+				$ins = php_ini_loaded_file();
+				if ( false === $ins ) {
 					esc_html_e( 'None', 'platforminfo' );
 				} else {
-					echo esc_html( php_ini_loaded_file() );
+					echo esc_html( $ins );
 					?>
-						<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( php_ini_loaded_file() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+						<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( $ins ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
 					<?php
 				}
 				?>
@@ -235,9 +239,9 @@ final class Platforminfo {
 				if ( ( false === $inis ) || ( 0 === strlen( $inis ) ) ) {
 					esc_html_e( 'None', 'platforminfo' );
 				} else {
-					echo esc_html( php_ini_scanned_files() );
+					echo esc_html( $inis );
 					?>
-					<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( php_ini_scanned_files() ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
+					<a href="#" onclick="clipboard(this)" data-item="<?php echo esc_attr( $inis ); ?>" class="platform_clipboard"><span class="dashicons dashicons-clipboard"></span></a>
 				<?php } ?>
 			</p>
 			<table class="wp-list-table widefat fixed striped table-view-list">
