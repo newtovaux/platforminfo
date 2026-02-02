@@ -5,12 +5,18 @@ on:
       - "*"
       - "!*-*"
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to deploy (e.g., 1.2.6)"
+        required: true
 jobs:
   tag:
     name: New tag
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag && format('refs/tags/{0}', inputs.tag) || github.ref }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -23,3 +29,4 @@ jobs:
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          VERSION: ${{ inputs.tag || github.ref_name }}
