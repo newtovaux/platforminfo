@@ -17,8 +17,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['7.4', '8.0', '8.1', '8.2']
-        wordpress-versions: ['5.8', '5.9', '6.0', '6.1', '6.2', '6.3', '6.4', 'latest', 'nightly']
+        php-versions: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4']
+        wordpress-versions: ['5.8', '5.9', '6.0', '6.1', '6.2', '6.3', '6.4', '6.5', '6.6', '6.7', '6.8', '6.9', 'latest', 'nightly']
         exclude:
           -  php-versions: '7.4'
              wordpress-versions: '6.4'
@@ -32,7 +32,7 @@ jobs:
       WPROOT: /var/www/html/wordpress
     services:
       database:
-        image: mariadb:10.7
+        image: mariadb:10.8
         env:
           MARIADB_DATABASE: wp
           MARIADB_USER: wp
@@ -48,7 +48,7 @@ jobs:
           --health-retries 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
