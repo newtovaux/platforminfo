@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.2.8 ##
+* WordPress release for 6.9
+
 ## 1.2.7 ##
 * WordPress release for 6.9
 
