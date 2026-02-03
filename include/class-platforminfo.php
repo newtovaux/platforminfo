@@ -58,6 +58,8 @@ final class Platforminfo {
 	 * Add the styles and JavaScript
 	 *
 	 * @since 1.0.0
+	 * 
+	 * @param string $hook Current admin page.
 	 *
 	 * @return void
 	 */
