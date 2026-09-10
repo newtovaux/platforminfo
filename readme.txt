@@ -25,7 +25,7 @@ Intended for use on stand-alone or shared hosting platforms.
 
 ### Changelog ###
 
-#### 1.3. ####
+#### 1.3.1 ####
 * CS bugs and release for 7.1
 
 #### 1.3.0 ####
