@@ -358,7 +358,7 @@ final class Platforminfo {
 				?>
 				and WP-Cron is
 				<?php
-				// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+				// phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 				if ( ( true === defined( 'DISABLE_WP_CRON' ) ) && ( true == DISABLE_WP_CRON ) ) {
 					esc_html_e( 'disabled', 'platforminfo' );
 				} else {
@@ -529,12 +529,10 @@ final class Platforminfo {
 		$next_schedule_ts = wp_date( 'Y-m-d H:i:s', $next_schedule );
 		if ( false === $next_schedule_ts ) {
 			return '';
-		} else {
-			if ( $next_schedule < time() ) {
+		} elseif ( $next_schedule < time() ) {
 				return sprintf( 'Overdue by %s: %s (%s)', self::secondstohuman( time() - $next_schedule ), $next_schedule_ts, __( 'UTC' ) );
-			} else {
-				return sprintf( 'Due in %s: %s (%s)', self::secondstohuman( $next_schedule - time() ), $next_schedule_ts, __( 'UTC' ) );
-			}
+		} else {
+			return sprintf( 'Due in %s: %s (%s)', self::secondstohuman( $next_schedule - time() ), $next_schedule_ts, __( 'UTC' ) );
 		}
 	}
 
@@ -608,5 +606,4 @@ final class Platforminfo {
 			echo '</li>';
 		}
 	}
-
 }
